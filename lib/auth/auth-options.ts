@@ -244,20 +244,32 @@ export const authOptions: NextAuthOptions = {
   },
   events: {
     async createUser(message) {
-      await identifyUser(message.user.email ?? message.user.id);
-      await trackAnalytics({
-        event: "User Signed Up",
-        email: message.user.email,
-        userId: message.user.id,
-      });
-
-      await qstash.publishJSON({
-        url: `${process.env.NEXT_PUBLIC_BASE_URL ?? getMainDomainUrl()}/api/cron/welcome-user`,
-        body: {
+      // Parche self-host: estos tres trámites son secundarios (analítica y un
+      // correo de bienvenida diferido), pero al ir con await bloqueaban la
+      // CREACIÓN DE LA CUENTA: si QStash o la analítica fallan, el primer
+      // acceso revienta y el usuario rebota al login sin explicación.
+      try {
+        await identifyUser(message.user.email ?? message.user.id);
+        await trackAnalytics({
+          event: "User Signed Up",
+          email: message.user.email,
           userId: message.user.id,
-        },
-        delay: 15 * 60,
-      });
+        });
+      } catch (e) {
+        console.error("[signup] analítica no disponible:", e);
+      }
+
+      try {
+        await qstash.publishJSON({
+          url: `${process.env.NEXT_PUBLIC_BASE_URL ?? getMainDomainUrl()}/api/cron/welcome-user`,
+          body: {
+            userId: message.user.id,
+          },
+          delay: 15 * 60,
+        });
+      } catch (e) {
+        console.error("[signup] no se pudo encolar el correo de bienvenida:", e);
+      }
     },
   },
 };
