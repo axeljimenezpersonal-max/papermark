@@ -5,20 +5,20 @@ import { GTMComponent } from "@/components/gtm-component";
 import LoginClient from "./page-client";
 
 const data = {
-  description: "Login to Papermark",
-  title: "Login | Papermark",
+  description: "Acceso a la Bóveda SINAPSYS",
+  title: "Acceso | Bóveda SINAPSYS",
   url: "/login",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.papermark.com"),
+  metadataBase: new URL("https://vault.sinapsys.mx"),
   title: data.title,
   description: data.description,
   openGraph: {
     title: data.title,
     description: data.description,
     url: data.url,
-    siteName: "Papermark",
+    siteName: "Bóveda SINAPSYS",
     images: [
       {
         url: "/_static/meta-image.png",
