@@ -23,6 +23,16 @@ export const rateLimiters = {
     enableProtection: true,
     analytics: true,
   }),
+
+  // Parche self-host: el código público espera este limitador pero la
+  // versión publicada de este archivo no lo trae. Mismo patrón que arriba.
+  bulkLinkImport: new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(10, "1 m"),
+    prefix: "rl:bulk-link-import",
+    enableProtection: true,
+    analytics: true,
+  }),
 };
 
 /**
