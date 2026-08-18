@@ -2,6 +2,7 @@ import React from "react";
 
 import {
   Body,
+  Button,
   Container,
   Head,
   Heading,
@@ -16,9 +17,11 @@ import {
 const VerificationCodeEmail = ({
   email = "user@example.com",
   code = "45PFSNUDYW",
+  url,
 }: {
   email?: string;
   code?: string;
+  url?: string;
 }) => {
   return (
     <Html>
@@ -33,7 +36,7 @@ const VerificationCodeEmail = ({
               </Text>
             </Section>
             <Heading className="mx-0 my-7 p-0 text-xl font-semibold text-black">
-              Your login code
+              Su código de acceso
             </Heading>
             <Text className="text-sm leading-6 text-neutral-600">
               Ingrese este código para acceder a la Bóveda SINAPSYS:
@@ -46,20 +49,32 @@ const VerificationCodeEmail = ({
                 {code}
               </Text>
             </Section>
+            {url ? (
+              <Section className="my-6 text-center">
+                <Button
+                  className="rounded-[4px] bg-black px-6 py-3 text-sm font-semibold text-white no-underline"
+                  href={url}
+                >
+                  Entrar a la bóveda
+                </Button>
+                <Text className="mt-4 text-xs leading-5 text-neutral-500">
+                  También puede entrar con el botón. Si no funciona, copie esta
+                  dirección en su navegador:
+                  <br />
+                  {url}
+                </Text>
+              </Section>
+            ) : null}
             <Text className="text-sm leading-6 text-neutral-600">
-              This code will expire in 15 minutes.
+              El código y el enlace caducan en 15 minutos.
             </Text>
             <Text className="mt-4 text-sm leading-5 text-neutral-500">
-              If you didn&apos;t request this code, you can safely ignore this
-              email.
+              Si usted no solicitó este acceso, puede ignorar este correo.
             </Text>
             <Hr className="my-6" />
             <Section className="text-gray-400">
               <Text className="text-xs text-neutral-500">
                 SINAPSYS CONSULTORIA IA · sinapsys.mx
-                <br />
-                1111B S Governors Ave #28117
-                <br />
                 Dover, DE 19904
               </Text>
             </Section>

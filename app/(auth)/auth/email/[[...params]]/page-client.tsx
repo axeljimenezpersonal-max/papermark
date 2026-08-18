@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
-import { LogoCloud } from "@/components/shared/logo-cloud";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -96,18 +95,18 @@ export default function EmailVerificationClient() {
         <div className="flex w-full justify-center bg-white md:w-[55%] lg:w-[55%]">
           <div className="z-10 mx-5 mt-0 h-fit w-full max-w-md overflow-hidden sm:mx-0 sm:mt-[calc(0.5vh)] md:mt-[calc(1vh)]">
             <div className="items-left flex flex-col space-y-3 px-4 py-6 pt-5 sm:px-12 sm:pt-6">
-              <Link href="https://www.papermark.com" target="_blank">
+              <Link href="https://sinapsys.mx" target="_blank">
                 <img
-                  src="/_static/papermark-logo.svg"
-                  alt="Papermark Logo"
-                  className="mb-24 h-7 w-auto self-start sm:mb-20"
+                  src="/_static/sinapsys-monograma.svg"
+                  alt="SINAPSYS"
+                  className="mb-24 h-9 w-auto self-start sm:mb-20"
                 />
               </Link>
               <span className="text-balance text-3xl font-semibold text-gray-900">
                 Code Expired
               </span>
               <h3 className="text-balance text-sm text-gray-800">
-                This login code has expired or has already been used.
+                Este código ya caducó o fue utilizado.
               </h3>
             </div>
             <div className="flex flex-col gap-4 px-4 pt-4 sm:px-12">
@@ -130,16 +129,16 @@ export default function EmailVerificationClient() {
       <div className="flex w-full justify-center bg-white md:w-[55%] lg:w-[55%]">
         <div className="z-10 mx-5 mt-0 h-fit w-full max-w-md overflow-hidden sm:mx-0 sm:mt-[calc(0.5vh)] md:mt-[calc(1vh)]">
           <div className="items-left flex flex-col space-y-3 px-4 py-6 pt-5 sm:px-12 sm:pt-6">
-            <Link href="https://www.papermark.com" target="_blank">
+            <Link href="https://sinapsys.mx" target="_blank">
               <img
-                src="/_static/papermark-logo.svg"
-                alt="Papermark Logo"
-                className="mb-24 h-7 w-auto self-start sm:mb-20"
+                src="/_static/sinapsys-monograma.svg"
+                alt="SINAPSYS"
+                className="mb-24 h-9 w-auto self-start sm:mb-20"
               />
             </Link>
             <Link href="/">
               <span className="text-balance text-3xl font-semibold text-gray-900">
-                Check your email
+                Revise su correo
               </span>
             </Link>
             <h3 className="text-balance text-sm text-gray-800">
@@ -149,7 +148,7 @@ export default function EmailVerificationClient() {
                   <span className="font-medium">{email}</span>
                 </>
               ) : (
-                "Enter your email and the code we sent you"
+                "Escriba su correo y el código que le enviamos"
               )}
             </h3>
           </div>
@@ -176,11 +175,11 @@ export default function EmailVerificationClient() {
               </div>
             )}
             <div className="space-y-2">
-              <Label htmlFor="code">Verification Code</Label>
+              <Label htmlFor="code">Código de verificación</Label>
               <Input
                 ref={codeInputRef}
                 id="code"
-                placeholder="Enter 10-character code"
+                placeholder="Código de 10 caracteres"
                 type="text"
                 autoCapitalize="characters"
                 autoComplete="one-time-code"
@@ -205,35 +204,19 @@ export default function EmailVerificationClient() {
               disabled={isLoading || !email || code.length < 10}
               className="focus:shadow-outline w-full transform rounded-[4px] bg-black px-4 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-900 focus:outline-none disabled:opacity-100"
             >
-              Verify
+              Entrar
             </Button>
           </form>
 
           <p className="mt-6 px-4 text-center text-sm text-muted-foreground sm:px-12">
             Didn&apos;t receive a code?{" "}
             <Link href="/login" className="text-gray-900 underline">
-              Try again
+              Solicitar otro
             </Link>
           </p>
 
           <p className="mt-10 w-full max-w-md px-4 text-xs text-muted-foreground sm:px-12">
-            By continuing, you agree to Papermark&apos;s{" "}
-            <a
-              href="https://www.papermark.com/terms"
-              target="_blank"
-              className="underline"
-            >
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://www.papermark.com/privacy"
-              target="_blank"
-              className="underline"
-            >
-              Privacy Policy
-            </a>
-            .
+            Acceso restringido. El uso de esta bóveda queda registrado.
           </p>
         </div>
       </div>
@@ -246,44 +229,24 @@ function TestimonialSection() {
   return (
     <div
       className="relative hidden w-full justify-center overflow-hidden md:flex md:w-[45%] lg:w-[45%]"
-      style={{ backgroundColor: "#f9fafb" }}
+      style={{ backgroundColor: "#080C10" }}
     >
-      <div className="flex h-full w-full flex-col items-center justify-center px-4 py-10">
-        <div className="flex w-full max-w-xl flex-col items-center">
-          <div className="mb-6 w-full max-w-md">
-            <img
-              className="h-auto w-full rounded-[4px] object-cover "
-              src="/_static/testimonials/backtrace.jpeg"
-              alt="Backtrace Capital"
-            />
-          </div>
-          <div className="w-full max-w-3xl text-center">
-            <blockquote
-              className="leading-8 text-gray-900 sm:text-xl sm:leading-9"
-              style={{
-                fontFamily:
-                  "system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-              }}
-            >
-              <p>
-                &quot;We raised €50M Fund with Papermark Data Rooms.
-                <br />
-                Secure, branded, and incredibly easy to use.&quot;
-              </p>
-            </blockquote>
-            <figcaption className="mt-4">
-              <div className="text-balance font-medium text-gray-900">
-                Michael Münnix
-              </div>
-              <div className="text-balance font-light text-gray-500">
-                Partner, Backtrace Capital
-              </div>
-            </figcaption>
-          </div>
-        </div>
-        <div className="mt-20 flex w-full max-w-md flex-col items-center">
-          <LogoCloud />
-        </div>
+      <div className="flex h-full w-full flex-col items-center justify-center px-12 text-center">
+        <img
+          src="/_static/sinapsys-monograma.svg"
+          alt=""
+          className="mb-10 h-16 w-auto opacity-90"
+        />
+        <p
+          className="max-w-md text-balance text-lg leading-8"
+          style={{ color: "#EAF0EC" }}
+        >
+          Aquí su información queda resguardada con nosotros. Cada documento
+          vive en un entorno privado, bajo su control y el nuestro.
+        </p>
+        <p className="mt-8 text-sm" style={{ color: "#8A9BA8" }}>
+          sinapsys.mx
+        </p>
       </div>
     </div>
   );

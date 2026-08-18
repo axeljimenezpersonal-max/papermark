@@ -63,6 +63,9 @@ export const sendVerificationRequestEmail = async (params: {
   const emailTemplate = VerificationCodeEmail({
     email,
     code,
+    // El enlace firmado vive en la base de datos: funciona aunque Redis falle,
+    // que es lo que dejaba el acceso por correo completamente muerto.
+    url,
   });
 
   // Use waitUntil to send email in background after response is sent
