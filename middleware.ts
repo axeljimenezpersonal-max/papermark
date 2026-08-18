@@ -20,6 +20,18 @@ function isAnalyticsPath(path: string) {
 }
 
 function isCustomDomain(host: string) {
+  // Parche self-host: la lista de abajo solo contempla los dominios de
+  // Papermark, así que CUALQUIER dominio propio caía aquí como "dominio de
+  // cliente", se iba a DomainMiddleware y respondía 404. El host de la propia
+  // bóveda (y el dominio de prueba de Railway) nunca son dominio de cliente.
+  const appHost = process.env.NEXT_PUBLIC_APP_BASE_HOST;
+  if (appHost && (host === appHost || host === `www.${appHost}`)) {
+    return false;
+  }
+  if (host?.endsWith(".up.railway.app")) {
+    return false;
+  }
+
   return (
     (process.env.NODE_ENV === "development" &&
       (host?.includes(".local") || host?.includes("papermark.dev"))) ||

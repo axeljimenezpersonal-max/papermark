@@ -29,8 +29,8 @@ COPY . .
 ARG NEXT_PUBLIC_BASE_URL=https://vault.sinapsys.mx
 ARG NEXT_PUBLIC_MARKETING_URL=https://sinapsys.mx
 ARG NEXT_PUBLIC_APP_BASE_HOST=vault.sinapsys.mx
-ARG NEXT_PUBLIC_WEBHOOK_BASE_URL=https://vault.sinapsys.mx
-ARG NEXT_PUBLIC_WEBHOOK_BASE_HOST=vault.sinapsys.mx
+ARG NEXT_PUBLIC_WEBHOOK_BASE_URL=https://webhooks.sinapsys.mx
+ARG NEXT_PUBLIC_WEBHOOK_BASE_HOST=webhooks.sinapsys.mx
 ARG NEXT_PUBLIC_UPLOAD_TRANSPORT=s3
 ARG NEXT_PRIVATE_UPLOAD_DISTRIBUTION_HOST=placeholder.r2.cloudflarestorage.com
 ARG HANKO_API_KEY=self-host-no-passkeys
