@@ -17,6 +17,15 @@ import { CustomUser } from "@/lib/types";
 
 const VERCEL_DEPLOYMENT = !!process.env.VERCEL_URL;
 
+// Parche self-host: el prefijo "__Secure-" se ataba a estar en Vercel, pero
+// getToken() del middleware lo asume en cuanto NEXTAUTH_URL es https. Fuera de
+// Vercel la sesión se guardaba SIN prefijo y el middleware la buscaba CON él:
+// el usuario entraba, la sesión se creaba... y toda ruta protegida lo rebotaba
+// al login sin ningún mensaje de error.
+const USE_SECURE_COOKIES =
+  VERCEL_DEPLOYMENT ||
+  (process.env.NEXTAUTH_URL ?? "").startsWith("https://");
+
 function getMainDomainUrl(): string {
   if (process.env.NODE_ENV === "development") {
     return process.env.NEXTAUTH_URL || "http://localhost:3000";
@@ -187,13 +196,13 @@ export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
   cookies: {
     sessionToken: {
-      name: `${VERCEL_DEPLOYMENT ? "__Secure-" : ""}next-auth.session-token`,
+      name: `${USE_SECURE_COOKIES ? "__Secure-" : ""}next-auth.session-token`,
       options: {
         httpOnly: true,
         sameSite: "lax",
         path: "/",
         domain: VERCEL_DEPLOYMENT ? ".papermark.com" : undefined,
-        secure: VERCEL_DEPLOYMENT,
+        secure: USE_SECURE_COOKIES,
       },
     },
   },
