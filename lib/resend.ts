@@ -45,24 +45,20 @@ export const sendEmail = async ({
   const html = await render(react);
   const plainText = toPlainText(html);
 
-  const fromAddress =
-    from ??
-    (marketing
-      ? "Marc from Papermark <marc@updates.papermark.com>"
-      : system
-        ? "Papermark <system@papermark.com>"
-        : verify
-          ? "Papermark <system@verify.papermark.com>"
-          : !!scheduledAt
-            ? "Marc Seitz <marc@papermark.com>"
-            : "Marc from Papermark <marc@papermark.com>");
+  // Parche self-host: los remitentes venían escritos a fuego con dominios de
+  // Papermark. Resend rechaza enviar desde un dominio que no es tuyo, así que
+  // NINGÚN correo salía (la llave ni se usaba). Ahora sale del dominio propio
+  // y se puede ajustar sin tocar código con EMAIL_FROM / EMAIL_REPLY_TO.
+  const defaultFrom =
+    process.env.EMAIL_FROM ?? "Bóveda SINAPSYS <boveda@sinapsys.mx>";
+  const fromAddress = from ?? defaultFrom;
 
   try {
     const { data, error } = await resend.emails.send({
       from: fromAddress,
       to: test ? "delivered@resend.dev" : to,
       cc: cc,
-      replyTo: marketing ? "marc@papermark.com" : replyTo,
+      replyTo: replyTo ?? process.env.EMAIL_REPLY_TO ?? "contacto@sinapsys.mx",
       subject,
       react,
       scheduledAt,

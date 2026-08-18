@@ -448,7 +448,7 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@papermarkio",
+      creator: "@sinapsys",
     },
     favicon,
     ...(noIndex && {

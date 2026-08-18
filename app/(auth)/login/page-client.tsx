@@ -247,8 +247,25 @@ export default function Login() {
             className="max-w-md text-balance text-lg leading-8"
             style={{ color: "#EAF0EC" }}
           >
-            Los documentos de esta bóveda se consultan en línea: no se
-            descargan, llevan marca de agua y el acceso es revocable.
+            Aquí su información queda resguardada con nosotros. Cada documento
+            vive en un entorno privado, bajo su control y el nuestro.
+          </p>
+          <p
+            className="mt-8 max-w-sm text-balance text-sm leading-6"
+            style={{ color: "#8A9BA8" }}
+          >
+            Tratamos sus datos únicamente para darle acceso a esta bóveda y
+            dejar constancia de cada consulta. No se comparten con terceros.{" "}
+            <a
+              href="https://sinapsys.mx/aviso-de-privacidad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+              style={{ color: "#EAF0EC" }}
+            >
+              Aviso de privacidad
+            </a>
+            .
           </p>
           <p className="mt-8 text-sm" style={{ color: "#8A9BA8" }}>
             sinapsys.mx
