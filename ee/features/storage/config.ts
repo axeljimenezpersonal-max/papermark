@@ -65,7 +65,12 @@ export function getStorageConfig(storageRegion?: string): StorageConfig {
     const archiveBucketVar = `NEXT_PRIVATE_ARCHIVE_BUCKET${suffix}`;
     const archiveBucket = process.env[archiveBucketVar];
     if (!archiveBucket) {
-      throw new Error(`Missing environment variable: ${archiveBucketVar}`);
+      // Parche self-host: esta variable no aparece en .env.example, pero su
+      // ausencia hacía fallar TODA subida con un 500 opaco (getStorageConfig
+      // se evalúa entero al pedir el permiso de subida). El archivado es una
+      // función secundaria: si no hay bucket propio, se reutiliza el de
+      // documentos en vez de tumbar la carga.
+      return getBucket();
     }
     return archiveBucket;
   };
