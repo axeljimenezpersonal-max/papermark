@@ -59,7 +59,16 @@ export default async function handler(
 
     const { client, config } = await getTeamS3ClientAndConfig(teamId);
 
-    if (config.distributionHost) {
+    // Parche self-host: bastaba con tener distributionHost para asumir que la
+    // entrega va por CloudFront y firmar con sus llaves. Con Cloudflare R2 ese
+    // host existe pero las llaves no, así que la firma reventaba y devolvía un
+    // 500 con el error crudo ("[object Object]"): ningún documento llegaba a
+    // convertirse. Solo usamos CloudFront si además hay llaves para firmar.
+    if (
+      config.distributionHost &&
+      config.distributionKeyId &&
+      config.distributionKeyContents
+    ) {
       const distributionUrl = new URL(
         key,
         `https://${config.distributionHost}`,
