@@ -42,12 +42,23 @@ export const sendVerificationRequestEmail = async (params: {
     createdAt: Date.now(),
   };
 
-  // Store with email:code as key for lookup (must complete before redirecting)
-  await redis.set(
-    `${LOGIN_CODE_EMAIL_PREFIX}${email.toLowerCase()}:${code}`,
-    JSON.stringify(loginCodeData),
-    { ex: TOKEN_EXPIRATION_SECONDS },
-  );
+  // Parche self-host: si Redis no está configurado (o falla), esta línea
+  // reventaba y el usuario solo veía "Error sending email" — sin que el correo
+  // se intentara siquiera. El código de 10 dígitos deja de funcionar sin Redis,
+  // pero el enlace mágico va firmado en la base de datos y sirve igual, así que
+  // degradamos en vez de bloquear el acceso.
+  try {
+    await redis.set(
+      `${LOGIN_CODE_EMAIL_PREFIX}${email.toLowerCase()}:${code}`,
+      JSON.stringify(loginCodeData),
+      { ex: TOKEN_EXPIRATION_SECONDS },
+    );
+  } catch (e) {
+    console.error(
+      "[login] Redis no disponible: se enviará solo el enlace de acceso.",
+      e,
+    );
+  }
 
   const emailTemplate = VerificationCodeEmail({
     email,
@@ -60,7 +71,7 @@ export const sendVerificationRequestEmail = async (params: {
     sendEmail({
       to: email as string,
       system: true,
-      subject: "Login for Papermark",
+      subject: "Acceso a la Bóveda SINAPSYS",
       react: emailTemplate,
       test: process.env.NODE_ENV === "development",
     }).catch((e) => {

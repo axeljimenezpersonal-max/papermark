@@ -26,6 +26,11 @@ function getMainDomainUrl(): string {
 
 export const authOptions: NextAuthOptions = {
   pages: {
+    // Sin signIn, NextAuth muestra su pantalla genérica (con botones de SAML y
+    // campos de depuración) cuando algo falla en el flujo OAuth. Apuntamos las
+    // tres a nuestra pantalla brandeada.
+    signIn: "/login",
+    signOut: "/login",
     error: "/login",
   },
   providers: [
