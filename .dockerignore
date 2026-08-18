@@ -1,0 +1,7 @@
+# Nada de esto debe entrar a la imagen: node_modules se instala dentro,
+# .next se genera dentro, y un .env local nunca debe hornearse en la imagen.
+.git
+node_modules
+.next
+.env
+.env.*

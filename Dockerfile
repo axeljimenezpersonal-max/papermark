@@ -17,13 +17,40 @@ COPY prisma ./prisma
 RUN npm ci
 
 # --- Build ---
-# Las variables NEXT_PUBLIC_* quedan horneadas en el build: Railway las
-# inyecta durante la construcción, así que deben estar capturadas en el
-# servicio ANTES del primer deploy.
+# Railway entrega las variables del servicio como build args, pero Docker solo
+# las expone al RUN si se declaran con ARG. Sin esto, `next build` truena con
+# "Invalid `has` item" (le falta NEXT_PUBLIC_WEBHOOK_BASE_HOST) y con los
+# constructores de Hanko y Slack, que exigen valor al cargar el módulo.
+# Los defaults son de respaldo: si la variable existe en Railway, Railway gana.
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-ENV NEXT_TELEMETRY_DISABLED=1
+
+ARG NEXT_PUBLIC_BASE_URL=https://vault.sinapsys.mx
+ARG NEXT_PUBLIC_MARKETING_URL=https://sinapsys.mx
+ARG NEXT_PUBLIC_APP_BASE_HOST=vault.sinapsys.mx
+ARG NEXT_PUBLIC_WEBHOOK_BASE_URL=https://vault.sinapsys.mx
+ARG NEXT_PUBLIC_WEBHOOK_BASE_HOST=vault.sinapsys.mx
+ARG NEXT_PUBLIC_UPLOAD_TRANSPORT=s3
+ARG NEXT_PRIVATE_UPLOAD_DISTRIBUTION_HOST=placeholder.r2.cloudflarestorage.com
+ARG HANKO_API_KEY=self-host-no-passkeys
+ARG NEXT_PUBLIC_HANKO_TENANT_ID=self-host-no-passkeys
+ARG SLACK_CLIENT_ID=self-host-unused
+ARG SLACK_CLIENT_SECRET=self-host-unused
+
+ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL \
+    NEXT_PUBLIC_MARKETING_URL=$NEXT_PUBLIC_MARKETING_URL \
+    NEXT_PUBLIC_APP_BASE_HOST=$NEXT_PUBLIC_APP_BASE_HOST \
+    NEXT_PUBLIC_WEBHOOK_BASE_URL=$NEXT_PUBLIC_WEBHOOK_BASE_URL \
+    NEXT_PUBLIC_WEBHOOK_BASE_HOST=$NEXT_PUBLIC_WEBHOOK_BASE_HOST \
+    NEXT_PUBLIC_UPLOAD_TRANSPORT=$NEXT_PUBLIC_UPLOAD_TRANSPORT \
+    NEXT_PRIVATE_UPLOAD_DISTRIBUTION_HOST=$NEXT_PRIVATE_UPLOAD_DISTRIBUTION_HOST \
+    HANKO_API_KEY=$HANKO_API_KEY \
+    NEXT_PUBLIC_HANKO_TENANT_ID=$NEXT_PUBLIC_HANKO_TENANT_ID \
+    SLACK_CLIENT_ID=$SLACK_CLIENT_ID \
+    SLACK_CLIENT_SECRET=$SLACK_CLIENT_SECRET \
+    NEXT_TELEMETRY_DISABLED=1
+
 RUN npm run build
 
 # --- Runtime ---
