@@ -110,7 +110,7 @@ export default function EmailVerificationMessage({
                 color: theme.ctaTextColor,
               }}
             >
-              {isLoading && !isResendLoading ? "Verifying..." : "Continue"}
+              {isLoading && !isResendLoading ? "Verificando..." : "Continuar"}
             </Button>
           </form>
 

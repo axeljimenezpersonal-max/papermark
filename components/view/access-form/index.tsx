@@ -152,7 +152,7 @@ export default function AccessForm({
           >
             {linkWelcomeMessage ||
               (brand && "welcomeMessage" in brand && brand.welcomeMessage) ||
-              "Your action is requested to continue"}
+              "Ingrese su correo para ver este documento"}
           </h1>
         </div>
 
@@ -201,7 +201,7 @@ export default function AccessForm({
                   color: accessFormTheme.ctaTextColor,
                 }}
               >
-                Continue
+                Continuar
               </Button>
             </div>
           </form>
@@ -213,15 +213,15 @@ export default function AccessForm({
             className="text-center text-sm tracking-tight"
             style={{ color: accessFormTheme.subtleTextColor }}
           >
-            This document is securely shared with you using{" "}
+            Este documento se comparte de forma segura a través de{" "}
             <a
-              href="https://www.papermark.com"
+              href="https://sinapsys.mx"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium"
               style={{ color: accessFormTheme.mutedTextColor }}
             >
-              Papermark
+              SINAPSYS
             </a>
             .
           </p>
@@ -229,15 +229,15 @@ export default function AccessForm({
             className="text-center text-sm tracking-tight"
             style={{ color: accessFormTheme.subtleTextColor }}
           >
-            See how we protect your data in our{" "}
+            Así protegemos su información:{" "}
             <a
-              href="https://www.papermark.com/privacy"
+              href="https://sinapsys.mx/aviso-de-privacidad"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-0.5"
               style={{ color: accessFormTheme.mutedTextColor }}
             >
-              <span>Privacy Policy</span>
+              <span>Aviso de privacidad</span>
               <ArrowUpRightIcon className="h-3 w-3" />
             </a>
           </p>

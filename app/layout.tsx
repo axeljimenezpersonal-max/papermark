@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 const data = {
   description:
     "Papermark is an open-source document sharing infrastructure. Free alternative to Docsend with custom domain. Manage secure document sharing with real-time analytics.",
-  title: "Papermark | The Open Source DocSend Alternative",
+  title: "Bóveda SINAPSYS",
   url: "/",
 };
 

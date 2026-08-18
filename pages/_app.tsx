@@ -27,7 +27,7 @@ export default function App({
   return (
     <>
       <Head>
-        <title>Papermark | The Open Source DocSend Alternative</title>
+        <title>Bóveda SINAPSYS</title>
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
@@ -36,7 +36,7 @@ export default function App({
         />
         <meta
           property="og:title"
-          content="Papermark | The Open Source DocSend Alternative"
+          content="Bóveda SINAPSYS"
           key="og-title"
         />
         <meta

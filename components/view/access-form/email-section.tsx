@@ -105,7 +105,7 @@ export default function EmailSection({
         className="block text-sm font-medium leading-6 text-white"
         style={{ color: theme.textColor }}
       >
-        Email address
+        Correo electrónico
       </label>
       <input
         name="email"
@@ -130,7 +130,7 @@ export default function EmailSection({
             : theme.textColor,
         } as CSSProperties}
         value={email || ""}
-        placeholder="Enter email"
+        placeholder="su@correo.com"
         onChange={handleEmailChange}
         onInvalid={handleInvalid}
         onBlur={handleBlur}
@@ -151,8 +151,8 @@ export default function EmailSection({
       )}
       <p className="text-sm" style={{ color: theme.subtleTextColor }}>
         {useCustomAccessForm
-          ? "This data will be shared with the content provider."
-          : "This data will be shared with the sender."}
+          ? "Su correo se compartirá con quien envió el documento."
+          : "Su correo se compartirá con quien envió el documento."}
       </p>
     </div>
   );
