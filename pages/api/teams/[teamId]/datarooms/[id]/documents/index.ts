@@ -84,6 +84,10 @@ export default async function handle(
               id: true,
               name: true,
               type: true,
+              numPages: true,
+              // Vista previa parcial: el panel necesita saber cuántas páginas
+              // se están mostrando para reflejar el estado actual.
+              previewPages: true,
               advancedExcelEnabled: true,
               versions: {
                 select: { id: true, hasPages: true },

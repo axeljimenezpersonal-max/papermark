@@ -41,6 +41,7 @@ import {
 import { AddToDataroomModal } from "../documents/add-document-to-dataroom-modal";
 import { DocumentPreviewButton } from "../documents/document-preview-button";
 import FileProcessStatusBar from "../documents/file-process-status-bar";
+import { LimitarVistaPreviaModal } from "@/components/datarooms/limitar-vista-previa-modal";
 import { EditDataroomDocumentModal } from "./edit-dataroom-document-modal";
 import { SetUnifiedPermissionsModal } from "./groups/set-unified-permissions-modal";
 import { MoveToDataroomFolderModal } from "./move-dataroom-folder-modal";
@@ -78,6 +79,8 @@ export default function DataroomDocumentCard({
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [moveFolderOpen, setMoveFolderOpen] = useState<boolean>(false);
   const [renameOpen, setRenameOpen] = useState<boolean>(false);
+  const [limitarVistaPreviaOpen, setLimitarVistaPreviaOpen] =
+    useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [addDataRoomOpen, setAddDataRoomOpen] = useState<boolean>(false);
 
@@ -118,47 +121,6 @@ export default function DataroomDocumentCard({
     };
   }, []);
 
-  // Vista previa parcial: pide cuántas páginas quedan visibles. El resto se
-  // sustituye por la imagen de aviso; las páginas reales no salen del servidor.
-  const handleLimitarVistaPrevia = async () => {
-    const actual = (dataroomDocument.document as any).previewPages ?? null;
-    const respuesta = window.prompt(
-      "¿Cuántas páginas quiere mostrar al visitante?\n\n" +
-        "Escriba un número (por ejemplo 5).\n" +
-        "Deje vacío para mostrar el documento completo.",
-      actual ? String(actual) : "",
-    );
-    if (respuesta === null) return;
-
-    const limpio = respuesta.trim();
-    const valor = limpio === "" ? null : Number(limpio);
-    if (valor !== null && (!Number.isInteger(valor) || valor < 1)) {
-      toast.error("Escriba un número entero mayor o igual a 1.");
-      return;
-    }
-
-    try {
-      const res = await fetch(
-        `/api/teams/${teamInfo?.currentTeam?.id}/documents/${dataroomDocument.document.id}`,
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ previewPages: valor }),
-        },
-      );
-      if (!res.ok) throw new Error(await res.text());
-      toast.success(
-        valor === null
-          ? "El documento se mostrará completo."
-          : `Se mostrarán ${valor} página(s); el resto queda restringido.`,
-      );
-      mutate(
-        `/api/teams/${teamInfo?.currentTeam?.id}/datarooms/${dataroomId}/documents`,
-      );
-    } catch {
-      toast.error("No se pudo guardar el límite de vista previa.");
-    }
-  };
 
   const handleButtonClick = (event: any, documentId: string) => {
     event.stopPropagation();
@@ -347,7 +309,7 @@ export default function DataroomDocumentCard({
                 <DropdownMenuItem
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleLimitarVistaPrevia();
+                    setLimitarVistaPreviaOpen(true);
                   }}
                 >
                   <EyeOffIcon className="mr-2 h-4 w-4" />
@@ -428,6 +390,18 @@ export default function DataroomDocumentCard({
             />
           )}
       </div>
+      {limitarVistaPreviaOpen ? (
+        <LimitarVistaPreviaModal
+          open={limitarVistaPreviaOpen}
+          setOpen={setLimitarVistaPreviaOpen}
+          documentId={dataroomDocument.document.id}
+          documentName={dataroomDocument.document.name}
+          numPages={(dataroomDocument.document as any).numPages}
+          previewPages={(dataroomDocument.document as any).previewPages}
+          teamId={teamInfo?.currentTeam?.id}
+          dataroomId={dataroomId}
+        />
+      ) : null}
       {renameOpen ? (
         <EditDataroomDocumentModal
           open={renameOpen}
