@@ -221,7 +221,7 @@ export default function DomainSection({
             <SelectValue placeholder="Select a domain" />
           </SelectTrigger>
           <SelectContent className="flex w-full rounded-md border border-input bg-white text-foreground placeholder-muted-foreground focus:border-muted-foreground focus:outline-none focus:ring-inset focus:ring-muted-foreground dark:border-gray-500 dark:bg-gray-800 focus:dark:bg-transparent sm:text-sm">
-            <SelectItem value=DEFAULT_DOMAIN className="hover:bg-muted">
+            <SelectItem value={DEFAULT_DOMAIN} className="hover:bg-muted">
               papermark.com
             </SelectItem>
             {linkType === "DOCUMENT_LINK" && (
