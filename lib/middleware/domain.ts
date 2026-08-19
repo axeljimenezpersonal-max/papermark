@@ -19,7 +19,15 @@ export default async function DomainMiddleware(req: NextRequest) {
       }
     }
 
-    return NextResponse.redirect(new URL("https://www.papermark.com", req.url));
+    // Parche self-host: al no reconocer un dominio, esto mandaba al visitante
+    // a la web de Papermark — o sea, sacaba al cliente de la bóveda y lo
+    // depositaba en la competencia. Ahora se queda en el sitio propio.
+    return NextResponse.redirect(
+      new URL(
+        process.env.NEXT_PUBLIC_MARKETING_URL ?? "https://sinapsys.mx",
+        req.url,
+      ),
+    );
   }
 
   const url = req.nextUrl.clone();
