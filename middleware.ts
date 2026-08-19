@@ -24,6 +24,16 @@ function isCustomDomain(host: string) {
   // Papermark, así que CUALQUIER dominio propio caía aquí como "dominio de
   // cliente", se iba a DomainMiddleware y respondía 404. El host de la propia
   // bóveda (y el dominio de prueba de Railway) nunca son dominio de cliente.
+  // Cualquier host bajo sinapsys.mx es NUESTRO, nunca el dominio de un
+  // cliente. Va escrito aquí a propósito: NEXT_PUBLIC_APP_BASE_HOST se
+  // hornea al compilar, así que cambiar de subdominio dejaba a la app
+  // creyendo que el nuevo host era ajeno — expulsaba al visitante desde la
+  // raíz y respondía 404 en los enlaces hasta recompilar con la variable
+  // correcta. Esta comprobación no depende de ninguna variable.
+  if (host === "sinapsys.mx" || host?.endsWith(".sinapsys.mx")) {
+    return false;
+  }
+
   const appHost = process.env.NEXT_PUBLIC_APP_BASE_HOST;
   if (appHost && (host === appHost || host === `www.${appHost}`)) {
     return false;
