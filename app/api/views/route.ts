@@ -627,7 +627,15 @@ export async function POST(request: NextRequest) {
         // Vista previa parcial: a partir de la página límite no se entrega la
         // página real —ni su URL firmada— sino una imagen de aviso con la
         // marca propia. El contenido restringido nunca sale del servidor.
-        const limiteVistaPrevia = link.document?.previewPages ?? null;
+        // El límite pertenece al DOCUMENTO que se está viendo. Leerlo de
+        // link.document fallaba en los enlaces de dataroom, donde ese campo va
+        // vacío: la carga inicial (10 páginas) salía sin restringir y el
+        // candado solo se notaba de la página 11 en adelante.
+        const versionVista = await prisma.documentVersion.findUnique({
+          where: { id: documentVersionId },
+          select: { document: { select: { previewPages: true } } },
+        });
+        const limiteVistaPrevia = versionVista?.document?.previewPages ?? null;
         const avisoRestringido = `${process.env.NEXT_PUBLIC_BASE_URL}/_static/pagina-restringida.png`;
 
         documentPages = await Promise.all(
