@@ -937,9 +937,26 @@ export async function POST(request: NextRequest) {
         const signStart = Math.max(0, centerIndex - halfWindow);
         const signEnd = Math.min(documentPages.length, signStart + INITIAL_PAGES_TO_LOAD);
 
+        // Vista previa parcial. Este es el TERCER camino por el que viajan las
+        // páginas: los documentos abiertos dentro de un dataroom se sirven
+        // aquí, no por app/api/views. Sin este candado, la carga inicial
+        // (10 páginas) salía completa y la restricción solo se notaba en las
+        // páginas que el visitante pedía después.
+        const versionVista = await prisma.documentVersion.findUnique({
+          where: { id: documentVersionId },
+          select: { document: { select: { previewPages: true } } },
+        });
+        const limiteVistaPrevia = versionVista?.document?.previewPages ?? null;
+        const avisoRestringido = `${process.env.NEXT_PUBLIC_BASE_URL}/_static/pagina-restringida.png`;
+
         documentPages = await Promise.all(
           documentPages.map(async (page, index) => {
             const { storageType, ...otherPage } = page;
+
+            if (limiteVistaPrevia !== null && index >= limiteVistaPrevia) {
+              return { ...otherPage, file: avisoRestringido };
+            }
+
             return {
               ...otherPage,
               file:
