@@ -53,7 +53,7 @@ export default function LinkSuccessSheet({
   const linkUrl =
     link.domainId && link.slug
       ? `https://${link.domainSlug}/${link.slug}`
-      : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`;
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`;
 
   const copyToClipboard = async () => {
     try {

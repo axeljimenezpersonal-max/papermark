@@ -96,7 +96,7 @@ export async function GET(
     const entryUrl =
       workflow.entryLink.domainSlug && workflow.entryLink.slug
         ? `https://${workflow.entryLink.domainSlug}/${workflow.entryLink.slug}`
-        : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${workflow.entryLink.id}`;
+        : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${workflow.entryLink.id}`;
 
     return NextResponse.json({
       ...workflow,

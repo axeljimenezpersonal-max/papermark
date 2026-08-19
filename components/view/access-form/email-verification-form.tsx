@@ -63,13 +63,13 @@ export default function EmailVerificationMessage({
             className="mt-10 text-2xl font-bold leading-9 tracking-tight"
             style={{ color: theme.textColor }}
           >
-            Verify your email address
+            Verifique su correo electrónico
           </h2>
           <p
             className="text-pretty text-sm leading-6"
             style={{ color: theme.textColor }}
           >
-            Enter the six digit verification code sent to{" "}
+            Escriba el código de seis dígitos que enviamos a{" "}
             <strong className="font-medium" title={data.email ?? ""}>
               {data.email}
             </strong>
@@ -120,7 +120,7 @@ export default function EmailVerificationMessage({
                 className="text-xs"
                 style={{ color: theme.subtleTextColor }}
               >
-                Didn&apos;t receive the email?
+                ¿No le llegó el correo?
               </p>{" "}
               <Button
                 variant="link"
@@ -142,8 +142,8 @@ export default function EmailVerificationMessage({
                 {isResendLoading && !isLoading
                   ? "Resending code..."
                   : delaySeconds > 0
-                    ? `Resend Code (${delaySeconds}s)`
-                    : "Resend Code"}
+                    ? `Reenviar código (${delaySeconds}s)`
+                    : "Reenviar código"}
               </Button>
             </div>
           </div>

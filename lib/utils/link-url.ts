@@ -8,7 +8,7 @@ export function constructLinkUrl(link: {
     return `https://${link.domainSlug}/${link.slug}`;
   }
 
-  return `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`;
+  return `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`;
 }
 
 

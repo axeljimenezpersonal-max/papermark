@@ -172,7 +172,7 @@ export default function GenerateIndexDialog({
                       <span className="text-xs text-muted-foreground">
                         {link.domainId
                           ? `${link.domainSlug}/${link.slug}`
-                          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`}
+                          : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`}
                       </span>
                     </div>
                   </SelectItem>

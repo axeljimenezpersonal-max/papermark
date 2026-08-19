@@ -323,7 +323,7 @@ async function handleLinksGet(teamId: string, res: NextApiResponse) {
       linkUrl:
         link.domainSlug && link.slug
           ? `https://${link.domainSlug}/${link.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`,
+          : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`,
     }));
 
     return res.status(200).json(transformedLinks);
@@ -687,7 +687,7 @@ async function handleDocumentCreate(
     linkUrl: createLink
       ? newLink?.domainSlug && newLink?.slug
         ? `https://${newLink.domainSlug}/${newLink.slug}`
-        : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${newLink?.id}`
+        : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${newLink?.id}`
       : undefined,
   });
 }
@@ -1030,7 +1030,7 @@ async function handleLinkCreate(
       linkUrl:
         domainId && link.domain && link.slug
           ? `https://${newLink.domainSlug}/${newLink.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${newLink.id}`,
+          : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${newLink.id}`,
     });
   } catch (error) {
     console.error("Link creation error:", error);
@@ -1301,7 +1301,7 @@ async function handleLinkUpdate(
       linkUrl:
         updatedLink.domainSlug && updatedLink.slug
           ? `https://${updatedLink.domainSlug}/${updatedLink.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${updatedLink.id}`,
+          : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${updatedLink.id}`,
     });
   } catch (error) {
     console.error("Link update error:", error);
@@ -1534,7 +1534,7 @@ async function handleDataroomCreate(
       linkUrl: createLink
         ? dataroom.links?.[0]?.domainSlug && dataroom.links?.[0]?.slug
           ? `https://${dataroom.links?.[0]?.domainSlug}/${dataroom.links?.[0]?.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${dataroom.links?.[0]?.id}`
+          : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${dataroom.links?.[0]?.id}`
         : undefined,
     });
   } catch (error) {

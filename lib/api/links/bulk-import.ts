@@ -321,7 +321,7 @@ export async function handleBulkLinkImport(
         linkUrl:
           newLink.domainSlug && newLink.slug
             ? `https://${newLink.domainSlug}/${newLink.slug}`
-            : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${newLink.id}`,
+            : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${newLink.id}`,
       });
 
       waitUntil(

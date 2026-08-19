@@ -81,13 +81,13 @@ export function LinkOptionContainer({
 
     if (currentDataroomId) {
       copyToClipboard(
-        `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${currentLinkId}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/view/${currentLinkId}`,
         `Link copied to clipboard. Redirecting to dataroom page...`,
       );
       router.push(`/datarooms/${currentDataroomId}/documents`);
     } else {
       copyToClipboard(
-        `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${currentLinkId}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/view/${currentLinkId}`,
         `Link copied to clipboard. Redirecting to document page...`,
       );
       router.push(`/documents/${currentDocId}`);
@@ -173,7 +173,7 @@ export function LinkOptionContainer({
                   <div className="flex py-8">
                     <div className="flex w-fit focus-within:z-10">
                       <p className="block rounded-md border-0 bg-secondary px-4 py-1.5 text-left leading-6 text-secondary-foreground md:min-w-[500px]">
-                        {`${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${currentLinkId}`}
+                        {`${process.env.NEXT_PUBLIC_BASE_URL}/view/${currentLinkId}`}
                       </p>
                     </div>
                   </div>

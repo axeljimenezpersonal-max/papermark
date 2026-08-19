@@ -296,7 +296,7 @@ export function DownloadsPanel({ linkId }: { linkId: string }) {
   if (step === "otp") {
     return (
       <div className="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4">
-        <h1 className="text-xl font-semibold">Verify your email</h1>
+        <h1 className="text-xl font-semibold">Verifique su correo</h1>
         <DownloadOtpVerification
           linkId={linkId}
           email={email.trim()}

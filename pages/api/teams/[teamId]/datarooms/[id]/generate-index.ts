@@ -218,7 +218,7 @@ export default async function handle(
         format,
         baseUrl: link.domainId
           ? `${link.domainSlug}/${link.slug}`
-          : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`,
+          : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`,
         showHierarchicalIndex: dataroomIndex,
       },
     );

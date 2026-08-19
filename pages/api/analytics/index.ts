@@ -346,7 +346,7 @@ export default async function handler(
               name: link.name || `Link #${link.id.slice(-5)}`,
               url: link.domainId
                 ? `https://${link.domainSlug}/${link.slug}`
-                : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`,
+                : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`,
               documentName: link.document?.name || "Unknown",
               documentId: link.documentId,
               views: link._count.views,

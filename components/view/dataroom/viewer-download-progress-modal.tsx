@@ -278,7 +278,7 @@ export function ViewerDownloadProgressModal({
           <DialogDescription>
             {step === "choose" &&
               "Start the download. You can optionally get an email when it's ready."}
-            {step === "otp" && "Verify your email to receive download notifications."}
+            {step === "otp" && "Verifique su correo para recibir avisos de descarga."}
             {step === "progress" &&
               (status?.status === "COMPLETED"
                 ? "Your files are ready to download."

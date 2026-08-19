@@ -150,8 +150,8 @@ export function DownloadOtpVerification({
           {isSending
             ? "Sending..."
             : resendCooldown > 0
-              ? `Resend code (${resendCooldown}s)`
-              : "Resend code"}
+              ? `Reenviar código (${resendCooldown}s)`
+              : "Reenviar código"}
         </Button>
       </p>
     </form>

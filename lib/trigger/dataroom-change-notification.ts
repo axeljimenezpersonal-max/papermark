@@ -202,7 +202,7 @@ export const sendDataroomChangeNotificationTask = schemaTask({
         if (link.domainId && link.domainSlug && link.slug) {
           linkUrl = `https://${link.domainSlug}/${link.slug}`;
         } else {
-          linkUrl = `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`;
+          linkUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`;
         }
 
         return {

@@ -115,7 +115,7 @@ const getFullUrl = (link: LinkWithViews) => {
   if (link.domainId) {
     return `https://${link.domainSlug}/${link.slug}`;
   }
-  return `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`;
+  return `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`;
 };
 
 // Display URL helper - shows the path portion that fits the cell
@@ -490,7 +490,7 @@ export default function LinksTable({
     }
 
     const { previewToken } = await response.json();
-    const previewLink = `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}?previewToken=${previewToken}`;
+    const previewLink = `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}?previewToken=${previewToken}`;
 
     window.open(previewLink, "_blank");
   };

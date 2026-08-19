@@ -250,7 +250,7 @@ export default function LinkSheet({
     }
 
     const { previewToken } = await response.json();
-    const previewLink = `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}?previewToken=${previewToken}`;
+    const previewLink = `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}?previewToken=${previewToken}`;
     setIsLoading(false);
     const linkElement = document.createElement("a");
     linkElement.href = previewLink;

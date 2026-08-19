@@ -918,7 +918,7 @@ export function SetUnifiedPermissionsModal({
                                     <p className="max-w-[300px] truncate text-sm text-muted-foreground">
                                       {link.domainId && link.slug
                                         ? `${link.domainSlug}/${link.slug}`
-                                        : `${process.env.NEXT_PUBLIC_MARKETING_URL}/view/${link.id}`}
+                                        : `${process.env.NEXT_PUBLIC_BASE_URL}/view/${link.id}`}
                                     </p>
                                   </div>
                                 </TableCell>
