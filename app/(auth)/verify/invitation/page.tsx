@@ -19,7 +19,7 @@ const data = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vault.sinapsys.mx"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? "https://boveda.sinapsys.mx"),
   title: data.title,
   description: data.description,
   openGraph: {

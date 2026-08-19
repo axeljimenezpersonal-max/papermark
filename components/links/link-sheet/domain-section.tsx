@@ -37,7 +37,7 @@ import { ButtonTooltip } from "@/components/ui/tooltip";
 import { DEFAULT_LINK_TYPE } from ".";
 
 const DEFAULT_DOMAIN =
-  process.env.NEXT_PUBLIC_APP_BASE_HOST ?? "vault.sinapsys.mx";
+  process.env.NEXT_PUBLIC_APP_BASE_HOST ?? "boveda.sinapsys.mx";
 
 // Unambiguous alphabet: excludes easily confused characters (0/O, 1/l/I)
 const generateRandomSlug = customAlphabet(

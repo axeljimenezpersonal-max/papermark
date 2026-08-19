@@ -26,9 +26,9 @@ FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ARG NEXT_PUBLIC_BASE_URL=https://vault.sinapsys.mx
+ARG NEXT_PUBLIC_BASE_URL=https://boveda.sinapsys.mx
 ARG NEXT_PUBLIC_MARKETING_URL=https://sinapsys.mx
-ARG NEXT_PUBLIC_APP_BASE_HOST=vault.sinapsys.mx
+ARG NEXT_PUBLIC_APP_BASE_HOST=boveda.sinapsys.mx
 ARG NEXT_PUBLIC_WEBHOOK_BASE_URL=https://webhooks.sinapsys.mx
 ARG NEXT_PUBLIC_WEBHOOK_BASE_HOST=webhooks.sinapsys.mx
 ARG NEXT_PUBLIC_UPLOAD_TRANSPORT=s3
