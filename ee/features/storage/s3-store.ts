@@ -25,7 +25,12 @@ export class MultiRegionS3Store extends S3Store {
     // Initialize with EU config as default
     const euConfig = getStorageConfig();
 
-    // Create S3 client config for super() call (omit endpoint if empty/undefined)
+    // Parche self-host: el comentario original prometía "omit endpoint if
+    // empty/undefined", pero el endpoint NUNCA se incluía. Sin él, el SDK
+    // asume Amazon S3 y con Cloudflare R2 toda subida por arrastrar-y-soltar
+    // fallaba ("Error uploading file"), mientras la subida por URL firmada
+    // —que sí manda el endpoint— funcionaba. De ahí que fallara igual con uno
+    // que con cinco archivos.
     const superS3Config: any = {
       bucket: euConfig.bucket,
       region: euConfig.region,
@@ -33,6 +38,7 @@ export class MultiRegionS3Store extends S3Store {
         accessKeyId: euConfig.accessKeyId,
         secretAccessKey: euConfig.secretAccessKey,
       },
+      ...(euConfig.endpoint ? { endpoint: euConfig.endpoint } : {}),
     };
 
     super({
@@ -51,6 +57,7 @@ export class MultiRegionS3Store extends S3Store {
         accessKeyId: euConfig.accessKeyId,
         secretAccessKey: euConfig.secretAccessKey,
       },
+      ...(euConfig.endpoint ? { endpoint: euConfig.endpoint } : {}),
     };
 
     this.euClient = new S3(euS3Config);
@@ -67,6 +74,7 @@ export class MultiRegionS3Store extends S3Store {
           accessKeyId: this.usConfig.accessKeyId,
           secretAccessKey: this.usConfig.secretAccessKey,
         },
+        ...(this.usConfig.endpoint ? { endpoint: this.usConfig.endpoint } : {}),
       };
 
       this.usClient = new S3(usS3Config);
