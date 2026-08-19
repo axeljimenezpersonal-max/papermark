@@ -38,7 +38,7 @@ export function ProBannerSection({
       <LinkItem
         title="Show Secured by Papermark"
         tooltipContent="Display 'Secured by Papermark' branding on your shared documents"
-        link="https://www.papermark.com/help/article/remove-papermark-branding"
+        link="https://sinapsys.mx/aviso-de-privacidad#remove-papermark-branding"
         enabled={enabled}
         action={handleShowBanner}
         isAllowed={isAllowed}

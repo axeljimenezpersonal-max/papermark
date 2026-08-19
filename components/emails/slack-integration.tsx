@@ -28,7 +28,7 @@ const SlackIntegrationEmail = ({ name }: SlackIntegrationEmailProps) => {
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 w-[465px] p-5">
             <Text className="mx-0 mb-8 mt-4 p-0 text-center text-2xl font-normal">
-              <span className="font-bold tracking-tighter">Papermark</span>
+              <span className="font-bold tracking-tighter">SINAPSYS</span>
             </Text>
             <Text className="mx-0 mb-8 mt-4 p-0 text-center text-2xl font-normal">
               Connect Slack in 2 clicks
@@ -63,7 +63,7 @@ const SlackIntegrationEmail = ({ name }: SlackIntegrationEmailProps) => {
               <Text className="text-xs">
                 © {new Date().getFullYear()}{" "}
                 <a
-                  href="https://www.papermark.com"
+                  href="https://sinapsys.mx"
                   className="text-gray-400 no-underline"
                   target="_blank"
                 >

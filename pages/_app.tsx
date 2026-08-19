@@ -46,18 +46,18 @@ export default function App({
         />
         <meta
           property="og:image"
-          content="https://www.papermark.com/_static/meta-image.png"
+          content="https://sinapsys.mx/_static/meta-image.png"
           key="og-image"
         />
         <meta
           property="og:url"
-          content="https://www.papermark.com"
+          content="https://sinapsys.mx"
           key="og-url"
         />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@papermarkio" />
-        <meta name="twitter:creator" content="@papermarkio" />
+        <meta name="twitter:site" content="@sinapsys" />
+        <meta name="twitter:creator" content="@sinapsys" />
         <meta name="twitter:title" content="Papermark" key="tw-title" />
         <meta
           name="twitter:description"
@@ -66,7 +66,7 @@ export default function App({
         />
         <meta
           name="twitter:image"
-          content="https://www.papermark.com/_static/meta-image.png"
+          content="https://sinapsys.mx/_static/meta-image.png"
           key="tw-image"
         />
         <link rel="icon" href="/favicon.ico" key="favicon" />

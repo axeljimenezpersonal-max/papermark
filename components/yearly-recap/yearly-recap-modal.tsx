@@ -341,7 +341,7 @@ export function YearlyRecapModal({
 
 My Papermark Wrapped ${stats?.year}!
 
-#PapermarkWrapped https://www.papermark.com/`;
+#PapermarkWrapped https://sinapsys.mx/`;
   };
 
   const handleShareLinkedIn = async () => {
@@ -351,7 +351,7 @@ My Papermark Wrapped ${stats?.year}!
     });
     const text = getShareText();
     window.open(
-      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://www.papermark.com/")}&summary=${encodeURIComponent(text)}`,
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://sinapsys.mx/")}&summary=${encodeURIComponent(text)}`,
       "_blank",
     );
   };
@@ -476,7 +476,7 @@ My Papermark Wrapped ${stats?.year}!
             Share your stats and receive{" "}
             <span className="font-semibold text-orange-600">$50</span> in
             credits on your papermark account, please send confirmation to{" "}
-            <span className="font-medium">support@papermark.com</span> and
+            <span className="font-medium">contacto@sinapsys.mx</span> and
             include screenshot or link to your post.
           </p>
 
@@ -628,7 +628,7 @@ function IntroSlide({
     <div className="relative flex min-h-[350px] flex-col items-center justify-center text-center sm:min-h-[520px]">
       <h1 className="relative z-10 mb-4 text-balance text-3xl font-semibold text-foreground sm:text-6xl">
         Your {stats.year} with{" "}
-        <span className="text-orange-500">Papermark</span>
+        <span className="text-orange-500">SINAPSYS</span>
       </h1>
       <p className="relative z-10 mb-10 max-w-xl px-2 text-xs text-gray-500 sm:mb-14 sm:px-0 sm:text-sm">
         This review is personalised to your platform usage and contains your
@@ -866,7 +866,7 @@ function ShareOfferSlide({ stats }: { stats: YearlyRecapStats }) {
       <p className="mt-6 max-w-sm text-balance px-2 text-xs text-muted-foreground sm:mt-8 sm:max-w-none sm:px-0 sm:text-sm">
         You will receive $50 in credits on your papermark account, please send
         confirmation to{" "}
-        <span className="font-medium">support@papermark.com</span> and include
+        <span className="font-medium">contacto@sinapsys.mx</span> and include
         screenshot or link to your post.
       </p>
     </div>

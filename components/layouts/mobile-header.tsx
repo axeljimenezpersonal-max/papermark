@@ -124,8 +124,8 @@ export function MobileHeader() {
             <DropdownMenuGroup>
               <DropdownMenuItem
                 onClick={() => {
-                  navigator.clipboard.writeText("support@papermark.com");
-                  toast.success("support@papermark.com copied to clipboard");
+                  navigator.clipboard.writeText("contacto@sinapsys.mx");
+                  toast.success("contacto@sinapsys.mx copied to clipboard");
                 }}
               >
                 <MailIcon className="mr-2 h-4 w-4" />

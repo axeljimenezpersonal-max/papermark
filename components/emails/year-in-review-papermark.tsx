@@ -55,7 +55,7 @@ export default function PapermarkYearInReviewEmail({
           <Container className="mx-auto w-full max-w-[600px] p-0">
             <Section className="p-8 text-center">
               <Text className="mx-0 mb-8 mt-4 p-0 text-center text-2xl font-normal">
-                <span className="font-bold tracking-tighter">Papermark</span>
+                <span className="font-bold tracking-tighter">SINAPSYS</span>
               </Text>
               <Text className="text-sm font-normal uppercase tracking-wider">
                 {year} in review
@@ -228,7 +228,7 @@ export default function PapermarkYearInReviewEmail({
             <Section className="pb-6 text-center">
               <Text className="text-xl leading-8 text-gray-900">
                 We&apos;re excited to support you next year! <br />
-                Happy Holidays from the Papermark team :)
+                Happy Holidays from el equipo de SINAPSYS :)
               </Text>
               <Link
                 href={`https://x.com/intent/post?text=In%202024%2C%20my%20documents%20have%20been%20viewed%20${minutesSpentOnDocs}%20minutes%20on%20%40papermarkio%2C%20by%3A%0A%0A%E2%80%A2%20Uploading%20${uploadedDocuments}%20documents%0A%E2%80%A2%20Sharing%20${sharedLinks}%20links%0A%E2%80%A2%20Receiving%20${receivedViews}%20views%0A%0A&url=https%3A%2F%2Fwww.papermark.com%2Fyear-in-review`}
@@ -265,7 +265,7 @@ export default function PapermarkYearInReviewEmail({
               <Text className="text-xs">
                 © {new Date().getFullYear()}{" "}
                 <a
-                  href="https://www.papermark.com"
+                  href="https://sinapsys.mx"
                   className="text-gray-400 no-underline"
                   target="_blank"
                 >

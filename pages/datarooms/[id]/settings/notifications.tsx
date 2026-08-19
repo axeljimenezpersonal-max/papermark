@@ -26,7 +26,7 @@ export default function Notifications() {
               linkText="Learn more"
               content="Manage email notification settings."
               key="notifications"
-              link="https://www.papermark.com/help/article/email-notifications"
+              link="https://sinapsys.mx/aviso-de-privacidad#email-notifications"
             >
               <CircleHelpIcon className="h-4 w-4 shrink-0 text-muted-foreground hover:text-foreground" />
             </BadgeTooltip>

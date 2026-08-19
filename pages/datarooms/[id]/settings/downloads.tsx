@@ -26,7 +26,7 @@ export default function Downloads() {
               linkText="Learn more"
               content="Allow admins to download the entire data room."
               key="downloads"
-              link="https://www.papermark.com/help/article/download-dataroom"
+              link="https://sinapsys.mx/aviso-de-privacidad#download-dataroom"
             >
               <CircleHelpIcon className="h-4 w-4 shrink-0 text-muted-foreground hover:text-foreground" />
             </BadgeTooltip>

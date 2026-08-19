@@ -66,7 +66,7 @@ export default function Documents() {
               linkText="Learn more"
               content="Learn how to add and organize documents."
               key="documents"
-              link="https://www.papermark.com/help/article/create-data-room"
+              link="https://sinapsys.mx/aviso-de-privacidad#create-data-room"
             >
               <CircleHelpIcon className="h-4 w-4 shrink-0 text-muted-foreground hover:text-foreground" />
             </BadgeTooltip>

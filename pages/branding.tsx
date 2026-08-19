@@ -311,7 +311,7 @@ export default function Branding() {
                     linkText="Click here"
                     content="How to customize document branding?"
                     key="branding"
-                    link="https://www.papermark.com/help/article/document-branding"
+                    link="https://sinapsys.mx/aviso-de-privacidad#document-branding"
                   >
                     <CircleHelpIcon className="h-4 w-4 shrink-0 text-muted-foreground hover:text-foreground" />
                   </BadgeTooltip>

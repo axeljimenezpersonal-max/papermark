@@ -26,7 +26,7 @@ export default function PermissionsSettings() {
               linkText="Learn more"
               content="Control view and download permissions per file."
               key="file-permissions"
-              link="https://www.papermark.com/help/article/granular-file-permissions"
+              link="https://sinapsys.mx/aviso-de-privacidad#granular-file-permissions"
             >
               <CircleHelpIcon className="h-4 w-4 shrink-0 text-muted-foreground hover:text-foreground" />
             </BadgeTooltip>

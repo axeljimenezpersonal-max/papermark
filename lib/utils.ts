@@ -420,8 +420,8 @@ export const calculateDaysLeft = (accountCreationDate: Date): number => {
 
 export function constructMetadata({
   title = "Bóveda SINAPSYS",
-  description = "Papermark is an open-source document sharing alternative to DocSend with built-in engagement analytics and 100% white-labeling.",
-  image = "https://www.papermark.com/_static/meta-image.png",
+  description = "Bóveda de documentos privados de SINAPSYS: acceso identificado, marca de agua y registro de cada consulta.",
+  image = "/_static/meta-image.png",
   favicon = "/favicon.ico",
   noIndex = false,
 }: {

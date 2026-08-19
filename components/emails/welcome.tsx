@@ -54,7 +54,7 @@ const WelcomeEmail = ({ name }: WelcomeEmailProps) => {
               </strong>
               : Simply{" "}
               <Link
-                href="https://www.papermark.com/help/article/how-to-upload-document"
+                href="https://sinapsys.mx/aviso-de-privacidad#how-to-upload-document"
                 className="font-semibold text-black underline underline-offset-4"
               >
                 drag and drop
@@ -68,21 +68,21 @@ const WelcomeEmail = ({ name }: WelcomeEmailProps) => {
               </strong>
               : Add{" "}
               <Link
-                href="https://www.papermark.com/help/article/require-email-verification"
+                href="https://sinapsys.mx/aviso-de-privacidad#require-email-verification"
                 className="font-semibold text-black underline underline-offset-4"
               >
                 email verification
               </Link>
               ,{" "}
               <Link
-                href="https://www.papermark.com/password-protection"
+                href="https://sinapsys.mx/password-protection"
                 className="font-semibold text-black underline underline-offset-4"
               >
                 password protection
               </Link>
               , or{" "}
               <Link
-                href="https://www.papermark.com/help/article/expiration-date"
+                href="https://sinapsys.mx/aviso-de-privacidad#expiration-date"
                 className="font-semibold text-black underline underline-offset-4"
               >
                 link expiration
@@ -96,7 +96,7 @@ const WelcomeEmail = ({ name }: WelcomeEmailProps) => {
               </strong>
               : Watch{" "}
               <Link
-                href="https://www.papermark.com/help/article/built-in-page-by-page-analytics"
+                href="https://sinapsys.mx/aviso-de-privacidad#built-in-page-by-page-analytics"
                 className="font-semibold text-black underline underline-offset-4"
               >
                 page-by-page analytics
@@ -110,7 +110,7 @@ const WelcomeEmail = ({ name }: WelcomeEmailProps) => {
               </strong>
               :{" "}
               <Link
-                href="https://www.papermark.com/help/article/create-data-room"
+                href="https://sinapsys.mx/aviso-de-privacidad#create-data-room"
                 className="font-semibold text-black underline underline-offset-4"
               >
                 Set up a secure data room

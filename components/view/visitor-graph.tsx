@@ -193,7 +193,7 @@ export default function ViewDurationSummary({
             By clicking continue, you acknowledge that you have read and agree
             to Papermark&apos;s{" "}
             <Link
-              href="https://www.papermark.com/terms"
+              href="https://sinapsys.mx/aviso-de-privacidad"
               target="_blank"
               className="underline hover:text-gray-900"
             >
@@ -201,7 +201,7 @@ export default function ViewDurationSummary({
             </Link>{" "}
             and{" "}
             <Link
-              href="https://www.papermark.com/privacy"
+              href="https://sinapsys.mx/aviso-de-privacidad"
               target="_blank"
               className="underline hover:text-gray-900"
             >

@@ -32,7 +32,7 @@ export default function Intro() {
           variants={STAGGER_CHILD_VARIANTS}
         >
           Welcome to{" "}
-          <span className="font-bold tracking-tighter">Papermark</span>
+          <span className="font-bold tracking-tighter">SINAPSYS</span>
         </motion.h1>
         <motion.p
           className="max-w-md text-accent-foreground/80 transition-colors sm:text-lg"

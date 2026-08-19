@@ -657,7 +657,7 @@ export default function PagesHorizontalViewer({
                                 useMap={`#page-map-${index + 1}`}
                                 src={
                                   page.file ||
-                                  "https://www.papermark.com/_static/blank.gif"
+                                  "https://sinapsys.mx/_static/blank.gif"
                                 }
                                 alt={`Page ${index + 1}`}
                               />

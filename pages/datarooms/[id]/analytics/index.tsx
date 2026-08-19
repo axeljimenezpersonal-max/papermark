@@ -43,7 +43,7 @@ export default function DataroomAnalyticsPage() {
               linkText="Learn more"
               content="Understand how viewers interact with your documents."
               key="analytics"
-              link="https://www.papermark.com/help/article/viewer-analytics"
+              link="https://sinapsys.mx/aviso-de-privacidad#viewer-analytics"
             >
               <CircleHelpIcon className="h-4 w-4 shrink-0 text-muted-foreground hover:text-foreground" />
             </BadgeTooltip>

@@ -26,7 +26,7 @@ export default function Introduction() {
               linkText="Learn more"
               content="Add an introduction page to your data room."
               key="introduction"
-              link="https://www.papermark.com/help/article/data-room-introduction-page"
+              link="https://sinapsys.mx/aviso-de-privacidad#data-room-introduction-page"
             >
               <CircleHelpIcon className="h-4 w-4 shrink-0 text-muted-foreground hover:text-foreground" />
             </BadgeTooltip>

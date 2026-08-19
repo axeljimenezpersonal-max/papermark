@@ -7,20 +7,20 @@ const inter = Inter({ subsets: ["latin"] });
 
 const data = {
   description:
-    "Papermark is an open-source document sharing infrastructure. Free alternative to Docsend with custom domain. Manage secure document sharing with real-time analytics.",
+    "Bóveda de documentos privados de SINAPSYS: acceso identificado, marca de agua y registro de cada consulta.",
   title: "Bóveda SINAPSYS",
   url: "/",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.papermark.com"),
+  metadataBase: new URL("https://sinapsys.mx"),
   title: data.title,
   description: data.description,
   openGraph: {
     title: data.title,
     description: data.description,
     url: data.url,
-    siteName: "Papermark",
+    siteName: "Bóveda SINAPSYS",
     images: [
       {
         url: "/_static/meta-image.png",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: data.title,
     description: data.description,
-    creator: "@papermarkio",
+    creator: "@sinapsys",
     images: ["/_static/meta-image.png"],
   },
 };
