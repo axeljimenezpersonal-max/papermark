@@ -181,7 +181,7 @@ export default function NotificationPreferencesPage({
               src={PapermarkLogo}
               width={119}
               height={32}
-              alt="Papermark"
+              alt="SINAPSYS"
             />
           </a>
         </header>

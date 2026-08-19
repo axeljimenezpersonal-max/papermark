@@ -36,6 +36,9 @@ import { ButtonTooltip } from "@/components/ui/tooltip";
 
 import { DEFAULT_LINK_TYPE } from ".";
 
+const DEFAULT_DOMAIN =
+  process.env.NEXT_PUBLIC_APP_BASE_HOST ?? "vault.sinapsys.mx";
+
 // Unambiguous alphabet: excludes easily confused characters (0/O, 1/l/I)
 const generateRandomSlug = customAlphabet(
   "23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz",
@@ -57,9 +60,12 @@ export default function DomainSection({
 }) {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isUpgradeModalOpen, setUpgradeModalOpen] = useState(false);
-  // Initialize displayValue from data.domain when editing, otherwise "papermark.com"
+  // Parche self-host: el dominio por defecto estaba escrito a fuego como
+// "papermark.com". Los enlaces sí salían con el dominio propio, pero el
+// selector mostraba una marca ajena al crear cada enlace.
+// Initialize displayValue from data.domain when editing, otherwise DEFAULT_DOMAIN
   const [displayValue, setDisplayValue] = useState<string>(
-    editLink && data.domain ? data.domain : "papermark.com",
+    editLink && data.domain ? data.domain : DEFAULT_DOMAIN,
   );
   const teamInfo = useTeam();
   const { limits } = useLimits();
@@ -74,7 +80,7 @@ export default function DomainSection({
 
   // Check if we're editing a link with a custom domain
   const isEditingCustomDomain =
-    editLink && data.domain && data.domain !== "papermark.com" ? true : false;
+    editLink && data.domain && data.domain !== DEFAULT_DOMAIN ? true : false;
 
   const generateAndSetSlug = useCallback(() => {
     const newSlug = generateRandomSlug();
@@ -88,28 +94,28 @@ export default function DomainSection({
         : canUseCustomDomainForDataroom;
 
     if (isEditingCustomDomain && !canChangeCustomDomain) {
-      setDisplayValue(data.domain ?? "papermark.com");
+      setDisplayValue(data.domain ?? DEFAULT_DOMAIN);
       return;
     }
 
     // Handle opening the add domain modal
     if (value === "add_domain" || value === "add_dataroom_domain") {
       setModalOpen(true);
-      setData((prev) => ({ ...prev, domain: "papermark.com" }));
-      setDisplayValue("papermark.com");
+      setData((prev) => ({ ...prev, domain: DEFAULT_DOMAIN }));
+      setDisplayValue(DEFAULT_DOMAIN);
       return;
     }
 
     // Check if this is a custom domain selection (not papermark.com)
-    if (value !== "papermark.com") {
+    if (value !== DEFAULT_DOMAIN) {
       // Show upgrade modal if user doesn't have the right plan
       if (
         (linkType === "DOCUMENT_LINK" && !canUseCustomDomainForDocument) ||
         (linkType === "DATAROOM_LINK" && !canUseCustomDomainForDataroom)
       ) {
         setUpgradeModalOpen(true);
-        setData((prev) => ({ ...prev, domain: "papermark.com" }));
-        setDisplayValue("papermark.com");
+        setData((prev) => ({ ...prev, domain: DEFAULT_DOMAIN }));
+        setDisplayValue(DEFAULT_DOMAIN);
         return;
       }
 
@@ -143,12 +149,12 @@ export default function DomainSection({
         (linkType === "DATAROOM_LINK" && canUseCustomDomainForDataroom);
 
       const domainValue = canUseCustomDomain
-        ? (defaultDomain?.slug ?? "papermark.com")
-        : "papermark.com";
+        ? (defaultDomain?.slug ?? DEFAULT_DOMAIN)
+        : DEFAULT_DOMAIN;
 
       // Auto-generate a slug when a custom domain is auto-selected as default
       const isCustomDomain =
-        domainValue !== "papermark.com" && canUseCustomDomain;
+        domainValue !== DEFAULT_DOMAIN && canUseCustomDomain;
 
       setData((prev) => ({
         ...prev,
@@ -170,11 +176,11 @@ export default function DomainSection({
 
   // Set defaultDomain based on plan type and link type
   const defaultDomain = editLink
-    ? (data.domain ?? "papermark.com")
+    ? (data.domain ?? DEFAULT_DOMAIN)
     : (linkType === "DOCUMENT_LINK" && canUseCustomDomainForDocument) ||
         (linkType === "DATAROOM_LINK" && canUseCustomDomainForDataroom)
-      ? (domains?.find((domain) => domain.isDefault)?.slug ?? "papermark.com")
-      : "papermark.com";
+      ? (domains?.find((domain) => domain.isDefault)?.slug ?? DEFAULT_DOMAIN)
+      : DEFAULT_DOMAIN;
 
   // Set the initial display value when component mounts
   useEffect(() => {
@@ -207,7 +213,7 @@ export default function DomainSection({
           <SelectTrigger
             className={cn(
               "flex h-10 w-full rounded-none rounded-l-md border border-input bg-white text-foreground placeholder-muted-foreground focus:border-muted-foreground focus:outline-none focus:ring-inset focus:ring-muted-foreground dark:border-gray-500 dark:bg-gray-800 focus:dark:bg-transparent sm:text-sm",
-              data.domain && data.domain !== "papermark.com"
+              data.domain && data.domain !== DEFAULT_DOMAIN
                 ? ""
                 : "border-r-1 rounded-r-md",
             )}
@@ -215,7 +221,7 @@ export default function DomainSection({
             <SelectValue placeholder="Select a domain" />
           </SelectTrigger>
           <SelectContent className="flex w-full rounded-md border border-input bg-white text-foreground placeholder-muted-foreground focus:border-muted-foreground focus:outline-none focus:ring-inset focus:ring-muted-foreground dark:border-gray-500 dark:bg-gray-800 focus:dark:bg-transparent sm:text-sm">
-            <SelectItem value="papermark.com" className="hover:bg-muted">
+            <SelectItem value=DEFAULT_DOMAIN className="hover:bg-muted">
               papermark.com
             </SelectItem>
             {linkType === "DOCUMENT_LINK" && (
@@ -269,7 +275,7 @@ export default function DomainSection({
           </SelectContent>
         </Select>
 
-        {data.domain && data.domain !== "papermark.com" ? (
+        {data.domain && data.domain !== DEFAULT_DOMAIN ? (
           <>
             <Input
               type="text"
@@ -303,7 +309,7 @@ export default function DomainSection({
               autoComplete="off"
               className={cn(
                 "hidden rounded-none focus:ring-inset",
-                data.domain && data.domain !== "papermark.com" ? "flex" : "",
+                data.domain && data.domain !== DEFAULT_DOMAIN ? "flex" : "",
                 isDisabled ? "opacity-50" : "",
               )}
               placeholder="deck"
@@ -359,7 +365,7 @@ export default function DomainSection({
         </div>
       )}
 
-      {data.domain && data.domain !== "papermark.com" && !isDomainVerified ? (
+      {data.domain && data.domain !== DEFAULT_DOMAIN && !isDomainVerified ? (
         <div className="mt-4 text-sm text-red-500">
           Your domain is not verified yet!{" "}
           <Link

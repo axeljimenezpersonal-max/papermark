@@ -147,24 +147,15 @@ export default async function VerifyInvitationPage({
                   ) : null}
                 </div>
                 <p className="mt-10 w-full max-w-md px-4 text-xs text-muted-foreground sm:px-16">
-                  By accepting this invitation, you acknowledge that you have
-                  acepta los términos de SINAPSYS{" "}
+                  Al aceptar esta invitación, usted acepta el{" "}
                   <a
                     href="https://sinapsys.mx/aviso-de-privacidad"
                     target="_blank"
                     className="underline hover:text-gray-900"
                   >
-                    Terms of Service
+                    aviso de privacidad
                   </a>{" "}
-                  and{" "}
-                  <a
-                    href="https://sinapsys.mx/aviso-de-privacidad"
-                    target="_blank"
-                    className="underline hover:text-gray-900"
-                  >
-                    Privacy Policy
-                  </a>
-                  .
+                  de SINAPSYS.
                 </p>
               </>
             )}
@@ -174,36 +165,26 @@ export default async function VerifyInvitationPage({
         <div className="hidden h-full w-full justify-center bg-gray-800 md:flex md:w-1/2 lg:w-3/5">
           <div className="flex w-full max-w-5xl px-4 py-20 md:px-8">
             <div
-              className="mx-auto flex w-full max-w-5xl justify-center rounded-3xl bg-gray-800 px-4 py-20 md:px-8"
-              id="features"
+              className="mx-auto flex w-full max-w-5xl justify-center rounded-3xl px-4 py-20 md:px-8"
+              style={{ backgroundColor: "#080C10" }}
             >
-              <div className="flex flex-col items-center justify-center">
-                {/* Image container */}
-                <div className="mb-4 h-64 w-64">
-                  <img
-                    className="h-full w-full rounded-2xl object-cover shadow-2xl"
-                    src="/_static/testimonials/jaski.jpeg"
-                    alt="Jaski"
-                  />
-                </div>
-                {/* Text content */}
-                <div className="max-w-xl text-center">
-                  <blockquote className="text-l text-balance leading-8 text-gray-100 sm:text-xl sm:leading-9">
-                    <p>
-                      True builders listen to their users and build what they
-                      need. Thanks Papermark team for solving a big pain point.
-                      DocSend monopoly will end soon!
-                    </p>
-                  </blockquote>
-                  <figcaption className="mt-4">
-                    <div className="text-balance font-semibold text-white">
-                      Jaski
-                    </div>
-                    <div className="text-balance text-gray-400">
-                      Founder, Townhall Network
-                    </div>
-                  </figcaption>
-                </div>
+              <div className="flex flex-col items-center justify-center text-center">
+                <img
+                  src="/_static/sinapsys-monograma.svg"
+                  alt=""
+                  className="mb-8 h-16 w-auto opacity-90"
+                />
+                <p
+                  className="max-w-md text-balance text-lg leading-8"
+                  style={{ color: "#EAF0EC" }}
+                >
+                  Aquí su información queda resguardada con nosotros. Cada
+                  documento vive en un entorno privado, bajo su control y el
+                  nuestro.
+                </p>
+                <p className="mt-8 text-sm" style={{ color: "#8A9BA8" }}>
+                  sinapsys.mx
+                </p>
               </div>
             </div>
           </div>
