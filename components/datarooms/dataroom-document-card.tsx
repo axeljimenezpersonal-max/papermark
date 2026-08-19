@@ -10,6 +10,7 @@ import {
   BetweenHorizontalStartIcon,
   FilePenIcon,
   FileSlidersIcon,
+  EyeOffIcon,
   FolderInputIcon,
   MoreVertical,
 } from "lucide-react";
@@ -116,6 +117,48 @@ export default function DataroomDocumentCard({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Vista previa parcial: pide cuántas páginas quedan visibles. El resto se
+  // sustituye por la imagen de aviso; las páginas reales no salen del servidor.
+  const handleLimitarVistaPrevia = async () => {
+    const actual = (dataroomDocument.document as any).previewPages ?? null;
+    const respuesta = window.prompt(
+      "¿Cuántas páginas quiere mostrar al visitante?\n\n" +
+        "Escriba un número (por ejemplo 5).\n" +
+        "Deje vacío para mostrar el documento completo.",
+      actual ? String(actual) : "",
+    );
+    if (respuesta === null) return;
+
+    const limpio = respuesta.trim();
+    const valor = limpio === "" ? null : Number(limpio);
+    if (valor !== null && (!Number.isInteger(valor) || valor < 1)) {
+      toast.error("Escriba un número entero mayor o igual a 1.");
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        `/api/teams/${teamInfo?.currentTeam?.id}/documents/${dataroomDocument.document.id}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ previewPages: valor }),
+        },
+      );
+      if (!res.ok) throw new Error(await res.text());
+      toast.success(
+        valor === null
+          ? "El documento se mostrará completo."
+          : `Se mostrarán ${valor} página(s); el resto queda restringido.`,
+      );
+      mutate(
+        `/api/teams/${teamInfo?.currentTeam?.id}/datarooms/${dataroomId}/documents`,
+      );
+    } catch {
+      toast.error("No se pudo guardar el límite de vista previa.");
+    }
+  };
 
   const handleButtonClick = (event: any, documentId: string) => {
     event.stopPropagation();
@@ -301,6 +344,15 @@ export default function DataroomDocumentCard({
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" ref={dropdownRef}>
                 <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                <DropdownMenuItem
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleLimitarVistaPrevia();
+                  }}
+                >
+                  <EyeOffIcon className="mr-2 h-4 w-4" />
+                  Limitar vista previa
+                </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={(e) => {
                     e.stopPropagation();

@@ -123,6 +123,7 @@ export async function POST(request: NextRequest) {
         document: {
           select: {
             agentsEnabled: true,
+            previewPages: true,
           },
         },
         visitorGroups: {
@@ -623,9 +624,20 @@ export async function POST(request: NextRequest) {
           signStart + INITIAL_PAGES_TO_LOAD,
         );
 
+        // Vista previa parcial: a partir de la página límite no se entrega la
+        // página real —ni su URL firmada— sino una imagen de aviso con la
+        // marca propia. El contenido restringido nunca sale del servidor.
+        const limiteVistaPrevia = link.document?.previewPages ?? null;
+        const avisoRestringido = `${process.env.NEXT_PUBLIC_BASE_URL}/_static/pagina-restringida.png`;
+
         documentPages = await Promise.all(
           documentPages.map(async (page, index) => {
             const { storageType, ...otherPage } = page;
+
+            if (limiteVistaPrevia !== null && index >= limiteVistaPrevia) {
+              return { ...otherPage, file: avisoRestringido };
+            }
+
             return {
               ...otherPage,
               file:

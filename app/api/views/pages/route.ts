@@ -234,9 +234,27 @@ async function fetchAndReturnPages(
     },
   });
 
+  // Vista previa parcial: este endpoint entrega páginas conforme el visitante
+  // avanza, así que necesita el mismo candado que la carga inicial. Sin él,
+  // bastaría con seguir bajando para obtener las páginas restringidas.
+  const version = await prisma.documentVersion.findUnique({
+    where: { id: documentVersionId },
+    select: { document: { select: { previewPages: true } } },
+  });
+  const limiteVistaPrevia = version?.document?.previewPages ?? null;
+  const avisoRestringido = `${process.env.NEXT_PUBLIC_BASE_URL}/_static/pagina-restringida.png`;
+
   const pagesWithUrls = await Promise.all(
     documentPages.map(async (page) => {
       const { storageType, ...otherPage } = page;
+
+      if (
+        limiteVistaPrevia !== null &&
+        otherPage.pageNumber > limiteVistaPrevia
+      ) {
+        return { pageNumber: otherPage.pageNumber, file: avisoRestringido };
+      }
+
       return {
         pageNumber: otherPage.pageNumber,
         file: await getFile({ data: page.file, type: storageType }),

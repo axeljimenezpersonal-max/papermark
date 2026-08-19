@@ -210,8 +210,11 @@ export default async function handle(
       }
 
       // Extract allowed fields from request body
-      const { agentsEnabled } = req.body as {
+      const { agentsEnabled, previewPages } = req.body as {
         agentsEnabled?: boolean;
+        // Vista previa parcial: número de páginas visibles, o null para
+        // entregar el documento completo.
+        previewPages?: number | null;
       };
 
       if (agentsEnabled !== undefined) {
@@ -224,10 +227,24 @@ export default async function handle(
       }
 
       // Build update data object with only provided fields
-      const updateData: { agentsEnabled?: boolean } = {};
+      const updateData: {
+        agentsEnabled?: boolean;
+        previewPages?: number | null;
+      } = {};
 
       if (typeof agentsEnabled === "boolean") {
         updateData.agentsEnabled = agentsEnabled;
+      }
+
+      if (previewPages === null) {
+        updateData.previewPages = null;
+      } else if (typeof previewPages === "number") {
+        if (!Number.isInteger(previewPages) || previewPages < 1) {
+          return res.status(400).json({
+            message: "previewPages debe ser un entero mayor o igual a 1",
+          });
+        }
+        updateData.previewPages = previewPages;
       }
 
       // Check if there's anything to update
@@ -245,6 +262,7 @@ export default async function handle(
         select: {
           id: true,
           agentsEnabled: true,
+          previewPages: true,
         },
       });
 
