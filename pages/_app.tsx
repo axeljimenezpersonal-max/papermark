@@ -31,7 +31,7 @@ export default function App({
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
-          content="Papermark is an open-source document sharing alternative to DocSend with built-in analytics."
+          content="Bóveda de documentos privados de SINAPSYS: acceso identificado, marca de agua y registro de cada consulta."
           key="description"
         />
         <meta
@@ -41,7 +41,7 @@ export default function App({
         />
         <meta
           property="og:description"
-          content="Papermark is an open-source document sharing alternative to DocSend with built-in analytics."
+          content="Bóveda de documentos privados de SINAPSYS: acceso identificado, marca de agua y registro de cada consulta."
           key="og-description"
         />
         <meta
@@ -61,7 +61,7 @@ export default function App({
         <meta name="twitter:title" content="Papermark" key="tw-title" />
         <meta
           name="twitter:description"
-          content="Papermark is an open-source document sharing alternative to DocSend with built-in analytics."
+          content="Bóveda de documentos privados de SINAPSYS: acceso identificado, marca de agua y registro de cada consulta."
           key="tw-description"
         />
         <meta
