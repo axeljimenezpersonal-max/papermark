@@ -31,7 +31,7 @@ const Onboarding2Email = () => {
               There are many ways how you can protect your documents!
             </Text>
             <Text className="text-sm">
-              With Papermark you can use different link settings for shared
+              With Bóveda SINAPSYS you can use different link settings for shared
               documents and data rooms:
             </Text>
             <ul className="list-inside list-disc text-sm">
@@ -46,7 +46,7 @@ const Onboarding2Email = () => {
             <Section className="my-8 text-center">
               <Button
                 className="rounded bg-black text-center text-xs font-semibold text-white no-underline"
-                href={`https://app.papermark.com/documents?utm_source=onboarding&utm_medium=email&utm_campaign=20240723&utm_content=upload_documents`}
+                href={`https://vault.sinapsys.mx/documents?utm_source=onboarding&utm_medium=email&utm_campaign=20240723&utm_content=upload_documents`}
                 style={{ padding: "12px 20px" }}
               >
                 To my link settings
@@ -59,7 +59,7 @@ const Onboarding2Email = () => {
             <Hr />
             <Section className="text-gray-400">
               <Text className="text-xs">
-                © {new Date().getFullYear()} Papermark, Inc. All rights
+                © {new Date().getFullYear()} SINAPSYS CONSULTORIA IA. All rights
                 reserved.
               </Text>
               <Text className="text-xs">

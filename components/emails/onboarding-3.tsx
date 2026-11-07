@@ -31,7 +31,7 @@ const Onboarding3Email = () => {
               You need to know who viewed your documents!
             </Text>
             <Text className="text-sm">
-              With Papermark you can track progress on each page of your
+              With Bóveda SINAPSYS you can track progress on each page of your
               document and other analytics:
             </Text>
             <ul className="list-inside list-disc text-sm">
@@ -47,7 +47,7 @@ const Onboarding3Email = () => {
             <Section className="my-8 text-center">
               <Button
                 className="rounded bg-black text-center text-xs font-semibold text-white no-underline"
-                href={`https://app.papermark.com/documents?utm_source=onboarding&utm_medium=email&utm_campaign=20240723&utm_content=upload_documents`}
+                href={`https://vault.sinapsys.mx/documents?utm_source=onboarding&utm_medium=email&utm_campaign=20240723&utm_content=upload_documents`}
                 style={{ padding: "12px 20px" }}
               >
                 View your document activity
@@ -59,7 +59,7 @@ const Onboarding3Email = () => {
             <Hr />
             <Section className="mt-8 text-gray-400">
               <Text className="text-xs">
-                © {new Date().getFullYear()} Papermark, Inc. All rights
+                © {new Date().getFullYear()} SINAPSYS CONSULTORIA IA. All rights
                 reserved.
               </Text>
               <Text className="text-xs">

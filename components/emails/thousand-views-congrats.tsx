@@ -20,12 +20,12 @@ const ThousandViewsCongratsEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>1000 views on Papermark.</Preview>
+      <Preview>1000 views on Bóveda SINAPSYS.</Preview>
       <Tailwind>
         <Body className="font-sans text-sm">
           <Text>Hi{name && ` ${name}`},</Text>
           <Text>
-            I&apos;m Marc, founder of Papermark. Congrats on 1000 views on your
+            This is the Bóveda SINAPSYS team. Congrats on 1000 views on your
             documents.
           </Text>
           <Text>How is your experience so far?</Text>
@@ -37,12 +37,12 @@ const ThousandViewsCongratsEmail = ({
           </Text>
           <Text>
             <Link
-              href="https://www.g2.com/products/papermark/reviews"
+              href="https://sinapsys.mx"
               target="_blank"
               className="text-blue-500 underline"
               rel="noopener noreferrer"
             >
-              Leave us a G2 review
+              Visit sinapsys.mx
             </Link>
           </Text>
         </Body>

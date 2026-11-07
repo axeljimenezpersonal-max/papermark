@@ -17,8 +17,8 @@ export default function DataroomNotification({
   dataroomName = "Example Data Room",
   documentName = "Example Document",
   senderEmail,
-  url = "https://app.papermark.com/datarooms/123",
-  unsubscribeUrl = "https://app.papermark.com/datarooms/123/unsubscribe",
+  url = "https://vault.sinapsys.mx/datarooms/123",
+  unsubscribeUrl = "https://vault.sinapsys.mx/datarooms/123/unsubscribe",
 }: {
   dataroomName: string;
   documentName: string | undefined;
@@ -43,7 +43,7 @@ export default function DataroomNotification({
               A new document{" "}
               <span className="font-semibold">{documentName}</span> has been
               added to <span className="font-semibold">{dataroomName}</span>{" "}
-              dataroom on Papermark.
+              dataroom on Bóveda SINAPSYS.
             </Text>
             <Section className="my-8 text-center">
               <Button
@@ -58,12 +58,12 @@ export default function DataroomNotification({
               or copy and paste this URL into your browser: <br />
               {`${url}`}
             </Text>
-            <Text className="text-sm text-gray-400">Papermark</Text>
+            <Text className="text-sm text-gray-400">Bóveda SINAPSYS</Text>
 
             <Hr />
             <Section className="text-gray-400">
               <Text className="text-xs">
-                © {new Date().getFullYear()} Papermark, Inc. All rights
+                © {new Date().getFullYear()} SINAPSYS CONSULTORIA IA. All rights
                 reserved.
               </Text>
               <Text className="text-xs">
@@ -76,7 +76,7 @@ export default function DataroomNotification({
                 ) : null}
                 because you viewed the dataroom{" "}
                 <span className="font-semibold">{dataroomName}</span> on
-                Papermark. If you have any feedback or questions about this
+                Bóveda SINAPSYS. If you have any feedback or questions about this
                 email, simply reply to it.{" "}
                 <a
                   href={unsubscribeUrl}

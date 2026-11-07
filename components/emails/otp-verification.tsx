@@ -41,7 +41,7 @@ export default function OtpEmailVerification({
                 />
               ) : (
                 <Text className="text-2xl font-bold tracking-tighter">
-                  Papermark
+                  Bóveda SINAPSYS
                 </Text>
               )}
             </Section>
@@ -50,7 +50,7 @@ export default function OtpEmailVerification({
             </Text>
             <Text className="text-sm leading-6 text-neutral-600">
               Enter this code to verify your email and access the{" "}
-              {resourceLabel} shared with you on Papermark:
+              {resourceLabel} shared with you on Bóveda SINAPSYS:
             </Text>
             <Section className="my-6">
               <Text
@@ -71,11 +71,9 @@ export default function OtpEmailVerification({
             <Hr className="my-6" />
             <Section className="text-gray-400">
               <Text className="text-xs text-neutral-500">
-                Papermark, Inc.
+                SINAPSYS CONSULTORIA IA
                 <br />
-                1111B S Governors Ave #28117
-                <br />
-                Dover, DE 19904
+                sinapsys.mx
               </Text>
             </Section>
           </Container>

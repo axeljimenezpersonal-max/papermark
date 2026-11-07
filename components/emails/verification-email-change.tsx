@@ -36,7 +36,7 @@ export function ConfirmEmailChange({
                 <span className="font-bold tracking-tighter">SINAPSYS</span>
               </Text>
               <Heading className="mx-0 my-7 p-0 text-center text-xl font-semibold text-black">
-                Your Papermark Email Change Confirmation Link
+                Your Bóveda SINAPSYS Email Change Confirmation Link
               </Heading>
             </Section>
             <Heading className="text-sm leading-6 text-black">

@@ -25,8 +25,8 @@ export default function DataroomDigestNotification({
     { documentName: "Document C" },
   ],
   senderEmail,
-  url = "https://app.papermark.com/datarooms/123",
-  preferencesUrl = "https://app.papermark.com/notification-preferences?token=abc",
+  url = "https://vault.sinapsys.mx/datarooms/123",
+  preferencesUrl = "https://vault.sinapsys.mx/notification-preferences?token=abc",
   frequency = "daily",
 }: {
   dataroomName: string;
@@ -87,12 +87,12 @@ export default function DataroomDigestNotification({
               or copy and paste this URL into your browser: <br />
               {url}
             </Text>
-            <Text className="text-sm text-gray-400">Papermark</Text>
+            <Text className="text-sm text-gray-400">Bóveda SINAPSYS</Text>
 
             <Hr />
             <Section className="text-gray-400">
               <Text className="text-xs">
-                © {new Date().getFullYear()} Papermark, Inc. All rights
+                © {new Date().getFullYear()} SINAPSYS CONSULTORIA IA. All rights
                 reserved.
               </Text>
               <Text className="text-xs">
@@ -106,7 +106,7 @@ export default function DataroomDigestNotification({
                 ) : null}
                 because you viewed the dataroom{" "}
                 <span className="font-semibold">{dataroomName}</span> on
-                Papermark. If you have any feedback or questions about this
+                Bóveda SINAPSYS. If you have any feedback or questions about this
                 email, simply reply to it.{" "}
                 <a
                   href={preferencesUrl}

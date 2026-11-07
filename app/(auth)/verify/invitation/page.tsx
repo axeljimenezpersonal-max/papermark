@@ -166,23 +166,23 @@ export default async function VerifyInvitationPage({
           <div className="flex w-full max-w-5xl px-4 py-20 md:px-8">
             <div
               className="mx-auto flex w-full max-w-5xl justify-center rounded-3xl px-4 py-20 md:px-8"
-              style={{ backgroundColor: "#080C10" }}
+              style={{ backgroundColor: "#0B0B0B" }}
             >
               <div className="flex flex-col items-center justify-center text-center">
                 <img
-                  src="/_static/sinapsys-monograma.svg"
+                  src="/_static/sinapsys-monograma-blanco.svg"
                   alt=""
                   className="mb-8 h-16 w-auto opacity-90"
                 />
                 <p
                   className="max-w-md text-balance text-lg leading-8"
-                  style={{ color: "#EAF0EC" }}
+                  style={{ color: "#FFFFFF" }}
                 >
                   Aquí su información queda resguardada con nosotros. Cada
                   documento vive en un entorno privado, bajo su control y el
                   nuestro.
                 </p>
-                <p className="mt-8 text-sm" style={{ color: "#8A9BA8" }}>
+                <p className="mt-8 text-sm" style={{ color: "#B8B8B8" }}>
                   sinapsys.mx
                 </p>
               </div>

@@ -235,24 +235,24 @@ export default function Login() {
       </div>
       <div
         className="relative hidden w-full justify-center overflow-hidden md:flex md:w-[45%] lg:w-[45%]"
-        style={{ backgroundColor: "#080C10" }}
+        style={{ backgroundColor: "#0B0B0B" }}
       >
         <div className="flex h-full w-full flex-col items-center justify-center px-12 text-center">
           <img
-            src="/_static/sinapsys-monograma.svg"
+            src="/_static/sinapsys-monograma-blanco.svg"
             alt=""
             className="mb-10 h-16 w-auto opacity-90"
           />
           <p
             className="max-w-md text-balance text-lg leading-8"
-            style={{ color: "#EAF0EC" }}
+            style={{ color: "#FFFFFF" }}
           >
             Aquí su información queda resguardada con nosotros. Cada documento
             vive en un entorno privado, bajo su control y el nuestro.
           </p>
           <p
             className="mt-8 max-w-sm text-balance text-sm leading-6"
-            style={{ color: "#8A9BA8" }}
+            style={{ color: "#B8B8B8" }}
           >
             Tratamos sus datos únicamente para darle acceso a esta bóveda y
             dejar constancia de cada consulta. No se comparten con terceros.{" "}
@@ -261,13 +261,13 @@ export default function Login() {
               target="_blank"
               rel="noopener noreferrer"
               className="underline"
-              style={{ color: "#EAF0EC" }}
+              style={{ color: "#FFFFFF" }}
             >
               Aviso de privacidad
             </a>
             .
           </p>
-          <p className="mt-8 text-sm" style={{ color: "#8A9BA8" }}>
+          <p className="mt-8 text-sm" style={{ color: "#B8B8B8" }}>
             sinapsys.mx
           </p>
         </div>

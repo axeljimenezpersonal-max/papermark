@@ -57,7 +57,7 @@ const SlackIntegrationEmail = ({ name }: SlackIntegrationEmailProps) => {
               If you have any questions or need help setting it up, just respond
               to this email. I&apos;m always happy to help!
             </Text>
-            <Text className="text-sm text-gray-400">Marc from Papermark</Text>
+            <Text className="text-sm text-gray-400">Bóveda SINAPSYS</Text>
             <Hr />
             <Section className="mt-8 text-gray-400">
               <Text className="text-xs">
@@ -67,7 +67,7 @@ const SlackIntegrationEmail = ({ name }: SlackIntegrationEmailProps) => {
                   className="text-gray-400 no-underline"
                   target="_blank"
                 >
-                  papermark.com
+                  sinapsys.mx
                 </a>
               </Text>
               <Text className="text-xs">
