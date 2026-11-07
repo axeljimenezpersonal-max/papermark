@@ -33,7 +33,7 @@ const Onboarding1Email = () => {
               It all starts from sharing your first document!
             </Text>
             <Text className="text-sm">
-              With Papermark you can upload different kind of documents and turn
+              With Bóveda SINAPSYS you can upload different kind of documents and turn
               them into shareable links:
             </Text>
             <ul className="list-inside list-disc text-sm">
@@ -53,7 +53,7 @@ const Onboarding1Email = () => {
             <Section className="my-8 text-center">
               <Button
                 className="rounded bg-black text-center text-xs font-semibold text-white no-underline"
-                href={`https://app.papermark.com/documents?utm_source=onboarding&utm_medium=email&utm_campaign=20240723&utm_content=upload_documents`}
+                href={`https://vault.sinapsys.mx/documents?utm_source=onboarding&utm_medium=email&utm_campaign=20240723&utm_content=upload_documents`}
                 style={{ padding: "12px 20px" }}
               >
                 Upload my documents
@@ -65,7 +65,7 @@ const Onboarding1Email = () => {
             <Hr />
             <Section className="text-gray-400">
               <Text className="text-xs">
-                © {new Date().getFullYear()} Papermark, Inc. All rights
+                © {new Date().getFullYear()} SINAPSYS CONSULTORIA IA. All rights
                 reserved.
               </Text>
               <Text className="text-xs">

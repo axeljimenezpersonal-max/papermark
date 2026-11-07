@@ -32,13 +32,13 @@ const Onboarding4Email = () => {
             <Text className="text-sm">
               Look professional with custom branding!
             </Text>
-            <Text className="text-sm">With Papermark you can:</Text>
+            <Text className="text-sm">With Bóveda SINAPSYS you can:</Text>
             <ul className="list-inside list-disc text-sm">
               <li>
                 Share documnets with your <strong>custom domain💫</strong>{" "}
               </li>
 
-              <li>Remove &quot;powered by Papermark&quot;</li>
+              <li>Remove &quot;powered by Bóveda SINAPSYS&quot;</li>
               <li>Add logo and custom colors</li>
               <li>Share data room with custom domain</li>
               <li>Add banner and custom brand to data rooms</li>
@@ -51,7 +51,7 @@ const Onboarding4Email = () => {
             <Section className="mb-[32px] mt-[32px] text-center">
               <Button
                 className="rounded bg-black text-center text-xs font-semibold text-white no-underline"
-                href={`https://app.papermark.com/documents?utm_source=onboarding&utm_medium=email&utm_campaign=20240723&utm_content=upload_documents`}
+                href={`https://vault.sinapsys.mx/documents?utm_source=onboarding&utm_medium=email&utm_campaign=20240723&utm_content=upload_documents`}
                 style={{ padding: "12px 20px" }}
               >
                 Add your domain and branding
@@ -60,7 +60,7 @@ const Onboarding4Email = () => {
             <Text className="text-sm">
               If you are looking for full white-labelling just{" "}
               <a
-                href="https://cal.com/marcseitz/papermark"
+                href="mailto:contacto@sinapsys.mx"
                 className="text-blue-500 underline"
               >
                 book a call
@@ -76,7 +76,7 @@ const Onboarding4Email = () => {
                   className="text-gray-400 no-underline"
                   target="_blank"
                 >
-                  papermark.com
+                  sinapsys.mx
                 </a>
               </Text>
               <Text className="text-xs">

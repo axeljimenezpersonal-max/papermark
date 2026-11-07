@@ -21,14 +21,14 @@ const SixMonthMilestoneEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>6 months with Papermark</Preview>
+      <Preview>6 months with Bóveda SINAPSYS</Preview>
       <Tailwind>
         <Body className="font-sans text-sm">
           <Text>Hi {name},</Text>
-          <Text>What&apos;s been your biggest win using Papermark?</Text>
+          <Text>What&apos;s been your biggest win using Bóveda SINAPSYS?</Text>
           <Text>
             Marc here. It&apos;s been 6 months since you using advanced
-            Papermark features! Excited to hear your story and feedback for us.
+            Bóveda SINAPSYS features! Excited to hear your story and feedback for us.
           </Text>
 
           <Text>Marc</Text>

@@ -40,19 +40,19 @@ export default function DomainDeleted({
             </Text>
             <Text className="text-sm leading-6 text-black">
               If you would like to restore the domain, you can easily create it
-              again on Papermark with the link below.
+              again on Bóveda SINAPSYS with the link below.
             </Text>
             <Section className="my-8 text-center">
               <Button
                 className="rounded bg-black text-center text-xs font-semibold text-white no-underline"
-                href={`https://app.papermark.com/settings/domains`}
+                href={`https://vault.sinapsys.mx/settings/domains`}
                 style={{ padding: "12px 20px" }}
               >
                 Set up your custom domain
               </Button>
             </Section>
             <Text className="text-sm leading-6 text-black">
-              If you did not want to keep using this domain on Papermark anyway,
+              If you did not want to keep using this domain on Bóveda SINAPSYS anyway,
               you can simply ignore this email.
             </Text>
             <Footer />

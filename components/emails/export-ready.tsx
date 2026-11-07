@@ -15,7 +15,7 @@ import { Footer } from "./shared/footer";
 
 export default function ExportReady({
   resourceName = "Export",
-  downloadUrl = "https://app.papermark.com/datarooms/123",
+  downloadUrl = "https://vault.sinapsys.mx/datarooms/123",
   email = "email@example.com",
 }: {
   resourceName?: string;
@@ -33,7 +33,7 @@ export default function ExportReady({
               <span className="font-bold tracking-tighter">SINAPSYS</span>
             </Text>
             <Text className="text-sm leading-6 text-black">
-              The export you requested is ready to download for your Papermark
+              The export you requested is ready to download for your Bóveda SINAPSYS
               account. Make sure you&apos;re signed into this account, and click
               below to download. The file will be available for the next three
               days.

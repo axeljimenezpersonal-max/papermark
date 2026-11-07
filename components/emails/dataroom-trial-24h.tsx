@@ -24,7 +24,7 @@ const DataroomTrial24hReminderEmail = ({ name }: TrialEndReminderEmail) => {
   return (
     <Html>
       <Head />
-      <Preview>Upgrade to Papermark Data Rooms Plus Plan</Preview>
+      <Preview>Upgrade to Bóveda SINAPSYS Data Rooms Plus Plan</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 w-[465px] p-5">
@@ -38,9 +38,9 @@ const DataroomTrial24hReminderEmail = ({ name }: TrialEndReminderEmail) => {
               Hey{name && ` ${name}`}!
             </Text>
             <Text className="text-sm leading-6 text-black">
-              Your Papermark Data Room Plus plan trial expires in 24 hours.
+              Your Bóveda SINAPSYS Data Room Plus plan trial expires in 24 hours.
               Don&apos;t lose access to these features -{" "}
-              <Link href={`https://app.papermark.com/settings/billing`}>
+              <Link href={`https://vault.sinapsys.mx/settings/billing`}>
                 upgrade today
               </Link>
               :
@@ -68,7 +68,7 @@ const DataroomTrial24hReminderEmail = ({ name }: TrialEndReminderEmail) => {
             <Section className="mb-[32px] mt-[32px] text-center">
               <Button
                 className="rounded bg-black text-center text-xs font-semibold text-white no-underline"
-                href={`https://app.papermark.com/settings/billing`}
+                href={`https://vault.sinapsys.mx/settings/billing`}
                 style={{ padding: "12px 20px" }}
               >
                 Upgrade now
@@ -80,7 +80,7 @@ const DataroomTrial24hReminderEmail = ({ name }: TrialEndReminderEmail) => {
               <span className="text-red-500 underline">disabled</span> in 24
               hours.
             </Text>
-            <Text className="text-sm text-gray-400">Marc from Papermark</Text>
+            <Text className="text-sm text-gray-400">Bóveda SINAPSYS</Text>
             <Footer />
           </Container>
         </Body>

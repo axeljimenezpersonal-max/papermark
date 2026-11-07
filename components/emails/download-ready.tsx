@@ -31,7 +31,7 @@ function formatExpirationTime(expiresAt?: string): string {
 
 export default function DownloadReady({
   dataroomName = "Dataroom",
-  downloadUrl = "https://app.papermark.com",
+  downloadUrl = "https://vault.sinapsys.mx",
   email = "email@example.com",
   expiresAt,
   isViewer = false,
